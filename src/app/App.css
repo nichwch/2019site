@@ -1,0 +1,47 @@
+.transparent
+{
+  width:70vw;
+  background-color:rgba(256, 256, 256,1);
+  vertical-align:top;
+
+  display:inline-block;
+  padding:40px 80px 40px 80px;
+  background-color:rgba(128, 128, 128,0);
+}
+
+.scrolling-wrapper
+{
+  width:50000px;
+}
+
+.background1
+{
+  position:fixed;
+  bottom:0px;
+  z-index:-1;
+}
+
+.background2
+{
+  position:fixed;
+  bottom:0px;
+  z-index:-2;
+}
+
+.foreground
+{
+  position:fixed;
+  bottom:0px;
+  z-index:0;
+}
+
+.box
+{
+  position:absolute;
+  bottom:0px;
+
+}
+body
+{
+  overflow: hidden;
+}
