@@ -17,22 +17,24 @@ class App extends React.Component {
 
   componentDidMount()
   {
-    ;(function() {
+
     var throttle = function(type, name, obj) {
-          var obj = obj || window;
-          var running = false;
-          var func = function() {
-              if (running) { return; }
-              running = true;
-              requestAnimationFrame(function() {
-                  obj.dispatchEvent(new CustomEvent(name));
-                  running = false;
-              });
-          };
-          obj.addEventListener(type, func);
-      };
-      throttle ("wheel", "optimizedScroll");
-    })();
+        var obj = obj || window;
+        var running = false;
+        var func = function(e) {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                var event = new CustomEvent(name);
+                event.deltaX = e.deltaX;
+                event.deltaY = e.deltaY;
+                obj.dispatchEvent(event);
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+    throttle ("wheel", "optimizedScroll");
 
     window.addEventListener('optimizedScroll',this.handleScroll,
       {
@@ -41,41 +43,67 @@ class App extends React.Component {
     );
   }
 
-  setTranslate = (xPos, yPos, el) => {
-      el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
+  setTranslate = (xPos, yPos, zPos,el) => {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px,"+zPos+"px)";
   }
 
   getTranslate = (el) => {
     var transf = el.style.transform;
-    transf = "translate3d(0px, 0px, 0px)";
+    // transf = "translate3d(15px, 17px, 19px)";
     var first = transf.indexOf("(");
     var second = transf.indexOf(",");
-    var third = transf.indexOf(",",second);
+    var third = transf.indexOf(",",second+1);
 
-
-    console.log(third);
     var x = transf.substring(first+1,transf.indexOf("px",first));
     var y = transf.substring(second+1,transf.indexOf("px",second));
     var z = transf.substring(third+1,transf.indexOf("px",third));
 
     var preres = [x,y,z];
-    console.log(preres);
     var res = [parseInt(x),parseInt(y),parseInt(z)];
-    console.log(res);
 
     return [parseInt(x),parseInt(y),parseInt(z)];
   }
 
   handleScroll = (e) =>
   {
-    console.log(e);
+    var delta;
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX))
+    {
+      delta = e.deltaY;
+    }
+    else
+    {
+      delta = e.deltaX;
+    }
+    let scrollSpeed = -0.5;
+    let scrollspeed_background1 = -1;
+    let scrollspeed_background2 = -1;
+
+    document.documentElement.scrollLeft -= (delta * scrollSpeed);
+    document.body.scrollLeft -= (delta * scrollSpeed);
+    console.log(document.documentElement.scrollLeft);
+    console.log(document.body.scrollLeft);
+    const background1 = document.querySelector(".background1");
+    // background1.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background1)+0}px`;
+
+    const background2 = document.querySelector(".background2");
+    // background2.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background2)+0}px`;
+
+    let background1transf = this.getTranslate(background1);
+    let newval1 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background1);
+    this.setTranslate(background1transf[0]+newval1,background1transf[1],background1transf[2],background1);
+
+    let background2transf = this.getTranslate(background2);
+    let newval2 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background2);
+    this.setTranslate(background2transf[0]+newval2,background2transf[1],background2transf[2],background2);
+
   }
 
   render()
   {
     return (
       <React.Fragment>
-        <div className="background1" style={{transform:`translate3d(${0}px, ${0}px, 0)`}}>
+        <div className="background1" style={{transform:`translate3d(${0}px, ${0}px, ${500}px)`}}>
           <img className="box">
           </img>
 
@@ -83,7 +111,7 @@ class App extends React.Component {
           </img>
         </div>
 
-        <div className="background2" style={{left:"0px"}}>
+        <div className="background2" style={{transform:`translate3d(${0}px, ${0}px, ${1000}px)`}}>
           <img className="box" style={{height:"1000px"}} src={mountain2}>
           </img>
 
