@@ -17,65 +17,58 @@ class App extends React.Component {
 
   componentDidMount()
   {
-    window.addEventListener('wheel',this.handleScroll,
+    ;(function() {
+    var throttle = function(type, name, obj) {
+          var obj = obj || window;
+          var running = false;
+          var func = function() {
+              if (running) { return; }
+              running = true;
+              requestAnimationFrame(function() {
+                  obj.dispatchEvent(new CustomEvent(name));
+                  running = false;
+              });
+          };
+          obj.addEventListener(type, func);
+      };
+      throttle ("wheel", "optimizedScroll");
+    })();
+
+    window.addEventListener('optimizedScroll',this.handleScroll,
       {
         passive: true
       }
     );
   }
 
-  // setTranslate = (xPos, yPos, el) => {
-  //     el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
-  // }
-  //
-  // getTranslate = (el) => {
-  //   var transf = el.style.transform;
-  //   transf = "translate3d(0px, 0px, 0px)";
-  //   var first = transf.indexOf("(");
-  //   var second = transf.indexOf(",");
-  //   var third = transf.indexOf(",",second);
-  //
-  //
-  //   console.log(third);
-  //   var x = transf.substring(first+1,transf.indexOf("px",first));
-  //   var y = transf.substring(second+1,transf.indexOf("px",second));
-  //   var z = transf.substring(third+1,transf.indexOf("px",third));
-  //
-  //   var preres = [x,y,z];
-  //   console.log(preres);
-  //   var res = [parseInt(x),parseInt(y),parseInt(z)];
-  //   console.log(res);
-  //
-  //   return [parseInt(x),parseInt(y),parseInt(z)];
-  // }
+  setTranslate = (xPos, yPos, el) => {
+      el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
+  }
+
+  getTranslate = (el) => {
+    var transf = el.style.transform;
+    transf = "translate3d(0px, 0px, 0px)";
+    var first = transf.indexOf("(");
+    var second = transf.indexOf(",");
+    var third = transf.indexOf(",",second);
+
+
+    console.log(third);
+    var x = transf.substring(first+1,transf.indexOf("px",first));
+    var y = transf.substring(second+1,transf.indexOf("px",second));
+    var z = transf.substring(third+1,transf.indexOf("px",third));
+
+    var preres = [x,y,z];
+    console.log(preres);
+    var res = [parseInt(x),parseInt(y),parseInt(z)];
+    console.log(res);
+
+    return [parseInt(x),parseInt(y),parseInt(z)];
+  }
 
   handleScroll = (e) =>
   {
-    e = window.event || e;
-    var delta;
-    if(Math.abs(e.deltaY)>Math.abs(e.deltaX))
-    {
-      delta = e.deltaY;
-    }
-    else
-    {
-      delta = e.deltaX;
-    }
-    var scrollSpeed = -0.5;
-    var scrollspeed_background1 = -1;
-    var scrollspeed_background2 = -0.5;
-
-    document.documentElement.scrollLeft -= (delta * scrollSpeed);
-    document.body.scrollLeft -= (delta * scrollSpeed);
-
-    const background1 = document.querySelector(".background1");
-    background1.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background1)+0}px`;
-
-    const background2 = document.querySelector(".background2");
-    background2.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background2)+0}px`;
-
-
-    // window.requestAnimationFrame(this.handleScroll);
+    console.log(e);
   }
 
   render()
