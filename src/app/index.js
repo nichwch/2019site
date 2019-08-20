@@ -45,6 +45,7 @@ class App extends React.Component {
 
   setTranslate = (xPos, yPos, zPos,el) => {
       el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px,"+zPos+"px)";
+      el.style.zIndex = zPos;
   }
 
   getTranslate = (el) => {
@@ -77,15 +78,25 @@ class App extends React.Component {
     }
     delta = e.deltaY;
     let scrollSpeed = -0.5;
-    let scrollspeed_background1 = -0.5;
-    let scrollspeed_background2 = -0.5;
 
     document.documentElement.scrollLeft -= (delta * scrollSpeed);
     document.body.scrollLeft -= (delta * scrollSpeed);
 
 
     let backgroundContainer = document.querySelector(".backgroundContainer");
-    console.log(backgroundContainer.children);
+    let children = backgroundContainer.children;
+
+    console.log("doc",document.documentElement.scrollLeft||document.body.scrollLeft);
+    if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
+    {
+      for(let child of children)
+      {
+        let childTransform = this.getTranslate(child);
+        let newval = childTransform[0]+(delta*scrollSpeed);
+        this.setTranslate(newval,childTransform[1],childTransform[2],child);
+      }
+    }
+
     // let newval1 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background1);
     // this.setTranslate(newval1,background1transf[1],background1transf[2],background1);
     //
@@ -103,25 +114,57 @@ class App extends React.Component {
         <div className="transparent">
         Nicholas Chen<br/>
         cs@ucd
-
         </div>
       </div>
         <div className="backgroundContainer">
-          <img className="box" style={{height:"500px",transform:`translate3d(${500}px, ${0}px, ${0}px)`}} src={mountain1}>
+          <img className="box"
+               style={{height:"500px",
+                       transform:`translate3d(${500}px, ${20}px, ${30}px)`,
+                       zIndex:'-1',
+                        }}
+               src={mountain1}>
           </img>
 
-          <img className="box" style={{height:"400px",transform:`translate3d(${1700}px, ${0}px, ${0}px)`}} src={mountain1}>
-          </img>
-          <img className="box" style={{height:"700px",transform:`translate3d(${700}px, ${0}px, ${0}px)`}} src={mountain2}>
+          <img className="box"
+                style={{height:"400px",
+                        transform:`translate3d(${1700}px, ${0}px, ${40}px)`,
+                        zIndex:'-1',}}
+                src={mountain1}>
           </img>
 
-          <img className="box" style={{height:"500px",transform:`translate3d(${1500}px, ${0}px, ${0}px)`}} src={mountain2}>
+          <img className="box"
+               style={{height:"700px",
+                       transform:`translate3d(${700}px, ${90}px, ${-90}px)`,
+                       zIndex:'-2',}}
+               src={mountain2}>
+          </img>
+
+          <img className="box"
+               style={{height:"500px",
+                       transform:`translate3d(${1500}px, ${100}px, ${-100}px)`,
+                       zIndex:'-3',}}
+                src={mountain2}>
+          </img>
+
+          <img className="box"
+               style={{height:"500px",
+                       transform:`translate3d(${2000}px, ${100}px, ${-100}px)`,
+                       zIndex:'-3',}}
+                src={mountain2}>
+          </img>
+
+          <img className="box"
+               style={{height:"500px",
+                       transform:`translate3d(${2500}px, ${100}px, ${-100}px)`,
+                       zIndex:'-3',}}
+                src={mountain2}>
           </img>
         </div>
 
 
         <div className="foreground">
-          <img className="box" style={{height:"500px"}} src={maskon}>
+          <img className="box"
+               style={{height:"500px"}} src={maskon}>
           </img>
         </div>
 

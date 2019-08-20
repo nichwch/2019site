@@ -13,6 +13,9 @@
 {
   position:absolute;
   width:50000px;
+  height:100vh;
+  bottom:0px;
+  z-index:900000;
 }
 
 .backgroundContainer
