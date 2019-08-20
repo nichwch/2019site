@@ -17,25 +17,11 @@
 
 .backgroundContainer
 {
+  position:fixed;
   height:100vh;
   perspective:500px;
 }
 
-.background1
-{
-  position:fixed;
-  bottom:0px;
-  z-index:-1;
-
-}
-
-.background2
-{
-  position:fixed;
-  bottom:0px;
-  z-index:-2;
-
-}
 
 .foreground
 {
@@ -46,7 +32,7 @@
 
 .box
 {
-  position:absolute;
+  position:fixed;
   bottom:0px;
 
 }
