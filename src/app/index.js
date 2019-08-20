@@ -119,10 +119,10 @@ class App extends React.Component {
           </div>
 
           <div className="background2" style={{transform:`translate3d(${0}px, ${250}px, ${-200}px)`}}>
-            <img className="box" style={{height:"700px",transform:`translate3d(${700}px, ${0}px, ${0}px)`}} src={mountain2}>
+            <img className="box" style={{height:"1200px",transform:`translate3d(${700}px, ${0}px, ${0}px)`}} src={mountain2}>
             </img>
 
-            <img className="box" style={{height:"500px",transform:`translate3d(${1500}px, ${0}px, ${0}px)`}} src={mountain2}>
+            <img className="box" style={{height:"1000px",transform:`translate3d(${1500}px, ${0}px, ${0}px)`}} src={mountain2}>
             </img>
 
           </div>
