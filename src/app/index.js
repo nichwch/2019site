@@ -75,27 +75,26 @@ class App extends React.Component {
     {
       delta = e.deltaX;
     }
+    delta = e.deltaY;
     let scrollSpeed = -0.5;
-    let scrollspeed_background1 = -1;
-    let scrollspeed_background2 = -1;
+    let scrollspeed_background1 = -0.5;
+    let scrollspeed_background2 = -0.5;
 
     document.documentElement.scrollLeft -= (delta * scrollSpeed);
     document.body.scrollLeft -= (delta * scrollSpeed);
-    console.log(document.documentElement.scrollLeft);
-    console.log(document.body.scrollLeft);
+
     const background1 = document.querySelector(".background1");
-    // background1.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background1)+0}px`;
 
     const background2 = document.querySelector(".background2");
-    // background2.style.left = `${(document.documentElement.scrollLeft * scrollspeed_background2)+0}px`;
 
+    console.log(background1.style.transform);
     let background1transf = this.getTranslate(background1);
     let newval1 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background1);
-    this.setTranslate(background1transf[0]+newval1,background1transf[1],background1transf[2],background1);
+    this.setTranslate(newval1,background1transf[1],background1transf[2],background1);
 
     let background2transf = this.getTranslate(background2);
     let newval2 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background2);
-    this.setTranslate(background2transf[0]+newval2,background2transf[1],background2transf[2],background2);
+    this.setTranslate(newval2,background2transf[1],background2transf[2],background2);
 
   }
 
@@ -103,33 +102,38 @@ class App extends React.Component {
   {
     return (
       <React.Fragment>
-        <div className="background1" style={{transform:`translate3d(${0}px, ${0}px, ${500}px)`}}>
-          <img className="box">
-          </img>
-
-          <img className="box" style={{height:"500px"}} src={mountain1}>
-          </img>
-        </div>
-
-        <div className="background2" style={{transform:`translate3d(${0}px, ${0}px, ${1000}px)`}}>
-          <img className="box" style={{height:"1000px"}} src={mountain2}>
-          </img>
-
-          <img className="box" style={{height:"800px"}} src={mountain2}>
-          </img>
+      <div id="scrolling-wrapper" className="scrolling-wrapper">
+        <div className="transparent">
+        Nicholas Chen<br/>
+        cs@ucd
 
         </div>
+      </div>
+        <div className="backgroundContainer">
+          <div className="background1" style={{transform:`translate3d(${0}px, ${20}px, ${-20}px)`}}>
+            <img className="box" style={{height:"500px",transform:`translate3d(${500}px, ${0}px, ${0}px)`}} src={mountain1}>
+            </img>
+
+            <img className="box" style={{height:"400px",transform:`translate3d(${1700}px, ${0}px, ${0}px)`}} src={mountain1}>
+            </img>
+          </div>
+
+          <div className="background2" style={{transform:`translate3d(${0}px, ${250}px, ${-200}px)`}}>
+            <img className="box" style={{height:"700px",transform:`translate3d(${700}px, ${0}px, ${0}px)`}} src={mountain2}>
+            </img>
+
+            <img className="box" style={{height:"500px",transform:`translate3d(${1500}px, ${0}px, ${0}px)`}} src={mountain2}>
+            </img>
+
+          </div>
+        </div>
+
+
         <div className="foreground">
           <img className="box" style={{height:"500px"}} src={maskon}>
           </img>
         </div>
-        <div id="scrolling-wrapper" className="scrolling-wrapper">
-          <div className="transparent">
-          Nicholas Chen<br/>
-          cs@ucd
 
-          </div>
-        </div>
     </React.Fragment>
     );
   }

@@ -11,7 +11,14 @@
 
 .scrolling-wrapper
 {
+  position:absolute;
   width:50000px;
+}
+
+.backgroundContainer
+{
+  height:100vh;
+  perspective:500px;
 }
 
 .background1
@@ -19,6 +26,7 @@
   position:fixed;
   bottom:0px;
   z-index:-1;
+
 }
 
 .background2
@@ -26,6 +34,7 @@
   position:fixed;
   bottom:0px;
   z-index:-2;
+
 }
 
 .foreground
