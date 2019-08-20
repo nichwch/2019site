@@ -125,6 +125,15 @@ class App extends React.Component {
             <img className="box" style={{height:"1000px",transform:`translate3d(${1500}px, ${0}px, ${0}px)`}} src={mountain2}>
             </img>
 
+            <img className="box" style={{height:"1000px",transform:`translate3d(${2000}px, ${0}px, ${0}px)`}} src={mountain2}>
+            </img>
+
+            <img className="box" style={{height:"1000px",transform:`translate3d(${2500}px, ${0}px, ${0}px)`}} src={mountain2}>
+            </img>
+
+            <img className="box" style={{height:"1000px",transform:`translate3d(${3000}px, ${0}px, ${0}px)`}} src={mountain2}>
+            </img>
+
           </div>
         </div>
 
