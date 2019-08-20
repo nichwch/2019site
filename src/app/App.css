@@ -17,6 +17,7 @@
 
 .backgroundContainer
 {
+  position:fixed;
   height:100vh;
   perspective:500px;
 }
