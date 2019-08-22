@@ -3,20 +3,34 @@ import './App.css';
 
 var maskon = require('../art/maskon.png');
 var fuckitmaskoff = require('../art/fuckitmaskoff.png');
-var mountain1 = require('../art/mountain1.png');
-var mountain2 = require('../art/mountain2.png');
 var jetboard = require('../art/jetboard.png');
+
+var mountain = require('../art/mountain.png');
+var building1 = require('../art/building1.png');
+var building2 = require('../art/building2.png');
+var bit1 = require('../art/bit1.png');
+var bit2 = require('../art/bit2.png');
+var bit3 = require('../art/bit3.png');
+
 
 class App extends React.Component {
 
   constructor(props)
   {
-    super(props)
+    super(props);
+    this.state =
+    {
+      text:"hello world"
+    }
+
 
   }
 
   componentDidMount()
   {
+
+    console.log(window.location.hash);
+    window.scrollTo(0,0);
 
     var throttle = function(type, name, obj) {
         var obj = obj || window;
@@ -46,6 +60,8 @@ class App extends React.Component {
   setTranslate = (xPos, yPos, zPos,el) => {
       el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px,"+zPos+"px)";
       el.style.zIndex = zPos;
+      //bad for performance
+      // el.style.filter = "brightness("+(((zPos+270)/320)*100)+"%)";
   }
 
   getTranslate = (el) => {
@@ -79,14 +95,17 @@ class App extends React.Component {
     delta = e.deltaY;
     let scrollSpeed = -0.5;
 
-    document.documentElement.scrollLeft -= (delta * scrollSpeed);
-    document.body.scrollLeft -= (delta * scrollSpeed);
+    console.log("doc1",document.documentElement.scrollLeft||document.body.scrollLeft);
 
+    document.documentElement.scrollLeft = document.documentElement.scrollLeft - (delta * scrollSpeed);
+    document.body.scrollLeft = document.body.scrollLeft - (delta * scrollSpeed);
+
+    console.log("doc2",document.documentElement.scrollLeft||document.body.scrollLeft);
 
     let backgroundContainer = document.querySelector(".backgroundContainer");
     let children = backgroundContainer.children;
 
-    console.log("doc",document.documentElement.scrollLeft||document.body.scrollLeft);
+
     if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
     {
       for(let child of children)
@@ -97,12 +116,30 @@ class App extends React.Component {
       }
     }
 
-    // let newval1 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background1);
-    // this.setTranslate(newval1,background1transf[1],background1transf[2],background1);
-    //
-    // let background2transf = this.getTranslate(background2);
-    // let newval2 = ((document.documentElement.scrollLeft||document.body.scrollLeft) * scrollspeed_background2);
-    // this.setTranslate(newval2,background2transf[1],background2transf[2],background2);
+    if((document.documentElement.scrollLeft>600 || document.body.scrollLeft>600))
+    {
+      this.setState({
+        text:"text3"
+      });
+    }
+    else if((document.documentElement.scrollLeft>400 || document.body.scrollLeft>400))
+    {
+      this.setState({
+        text:"text2"
+      });
+    }
+    else if((document.documentElement.scrollLeft>200 || document.body.scrollLeft>200))
+    {
+      this.setState({
+        text:"text1"
+      });
+    }
+    else if((document.documentElement.scrollLeft<200 || document.body.scrollLeft<200))
+    {
+      this.setState({
+        text:"text0"
+      });
+    }
 
   }
 
@@ -117,55 +154,55 @@ class App extends React.Component {
         </div>
       </div>
         <div className="backgroundContainer">
+
           <img className="box"
-               style={{height:"500px",
-                       transform:`translate3d(${500}px, ${20}px, ${30}px)`,
-                       zIndex:'-1',
-                        }}
-               src={mountain1}>
+                style={{height:"700px",
+                        transform:`translate3d(${1700}px, ${40}px, ${40}px)`,
+                        zIndex:'-1'}}
+                src={building1}>
           </img>
 
           <img className="box"
-                style={{height:"400px",
-                        transform:`translate3d(${1700}px, ${0}px, ${40}px)`,
-                        zIndex:'-1',}}
-                src={mountain1}>
+               style={{height:"900px",
+                       transform:`translate3d(${700}px, ${180}px, ${-90}px)`,
+                       zIndex:'-2'}}
+               src={building2}>
           </img>
 
           <img className="box"
-               style={{height:"700px",
-                       transform:`translate3d(${700}px, ${90}px, ${-90}px)`,
-                       zIndex:'-2',}}
-               src={mountain2}>
+               style={{height:"900px",
+                       transform:`translate3d(${1500}px, ${200}px, ${-200}px)`,
+                       zIndex:'-3'}}
+                src={mountain}>
           </img>
 
           <img className="box"
-               style={{height:"500px",
-                       transform:`translate3d(${1500}px, ${100}px, ${-100}px)`,
-                       zIndex:'-3',}}
-                src={mountain2}>
-          </img>
-
-          <img className="box"
-               style={{height:"500px",
+               style={{height:"900px",
                        transform:`translate3d(${2000}px, ${100}px, ${-100}px)`,
-                       zIndex:'-3',}}
-                src={mountain2}>
+                       zIndex:'-3'}}
+                src={building1}>
+          </img>
+
+          <img className="box"
+               style={{height:"900px",
+                       transform:`translate3d(${2500}px, ${200}px, ${-100}px)`,
+                       zIndex:'-3'}}
+                src={building1}>
           </img>
 
           <img className="box"
                style={{height:"500px",
-                       transform:`translate3d(${2500}px, ${100}px, ${-100}px)`,
-                       zIndex:'-3',}}
-                src={mountain2}>
+                       transform:`translate3d(${2500}px, ${100}px, ${-50}px)`,
+                       zIndex:'0',
+                     }}
+               src={maskon}>
           </img>
         </div>
 
 
         <div className="foreground">
-          <img className="box"
-               style={{height:"500px"}} src={maskon}>
-          </img>
+          {this.state.text}
+
         </div>
 
     </React.Fragment>
