@@ -59,7 +59,6 @@ class App extends React.Component {
 
   setTranslate = (xPos, yPos, zPos,el) => {
       el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px,"+zPos+"px)";
-      el.style.zIndex = zPos;
       //bad for performance
       // el.style.filter = "brightness("+(((zPos+270)/320)*100)+"%)";
   }
@@ -94,13 +93,10 @@ class App extends React.Component {
     }
     delta = e.deltaY;
     let scrollSpeed = -0.5;
-
-    console.log("doc1",document.documentElement.scrollLeft||document.body.scrollLeft);
+    let backgroundScrollSpeed = -0.2
 
     document.documentElement.scrollLeft = document.documentElement.scrollLeft - (delta * scrollSpeed);
     document.body.scrollLeft = document.body.scrollLeft - (delta * scrollSpeed);
-
-    console.log("doc2",document.documentElement.scrollLeft||document.body.scrollLeft);
 
     let backgroundContainer = document.querySelector(".backgroundContainer");
     let children = backgroundContainer.children;
@@ -108,12 +104,27 @@ class App extends React.Component {
 
     if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
     {
-      for(let child of children)
-      {
-        let childTransform = this.getTranslate(child);
-        let newval = childTransform[0]+(delta*scrollSpeed);
-        this.setTranslate(newval,childTransform[1],childTransform[2],child);
-      }
+      // for(let child of children)
+      // {
+      //   let childTransform = this.getTranslate(child);
+      //   let newval = childTransform[0]+(delta*backgroundScrollSpeed);
+      //   this.setTranslate(newval,childTransform[1],childTransform[2],child);
+      // }
+      let child = document.querySelector("#layer1");
+      let childTransform = this.getTranslate(child);
+      let newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+      this.setTranslate(newval,childTransform[1],childTransform[2],child);
+
+      child = document.querySelector("#layer2");
+      childTransform = this.getTranslate(child);
+      newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+      this.setTranslate(newval,childTransform[1],childTransform[2],child);
+
+      child = document.querySelector("#layer3");
+      childTransform = this.getTranslate(child);
+      newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+      this.setTranslate(newval,childTransform[1],childTransform[2],child);
+
     }
 
     if((document.documentElement.scrollLeft>600 || document.body.scrollLeft>600))
@@ -148,55 +159,106 @@ class App extends React.Component {
     return (
       <React.Fragment>
       <div id="scrolling-wrapper" className="scrolling-wrapper">
-        <div className="transparent">
-        Nicholas Chen<br/>
-        cs@ucd
-        </div>
+
       </div>
+      {/*<div className="contentLayer">
+      </div>*/}
         <div className="backgroundContainer">
 
-          <img className="box"
-                style={{height:"700px",
-                        transform:`translate3d(${1700}px, ${40}px, ${40}px)`,
-                        zIndex:'-1'}}
-                src={building1}>
-          </img>
 
-          <img className="box"
-               style={{height:"900px",
-                       transform:`translate3d(${700}px, ${180}px, ${-90}px)`,
+          {/*layer 1 (closest)*/}
+          <div className="layer" id="layer1"
+               style={{
+                  transform:`translate3d(${0}px, ${0}px, ${40}px)`,
+                  zIndex:'-1'}}
+          >
+              <img  className="layerElement"
+                    style={{height:"700px",
+                            filter:'brightness(80%)',
+                            left:"600px"
+                          }}
+                    src={building1}>
+              </img>
+          </div>
+
+          {/*layer 2*/}
+          <div className="layer" id="layer2"
+               style={{
+                       transform:`translate3d(${0}px, ${90}px, ${-90}px)`,
+                       filter:'brightness(60%)',
                        zIndex:'-2'}}
-               src={building2}>
-          </img>
+          >
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"200px",
+                           bottom:"-10px"
+                           }}
+                   src={building2}>
+              </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"500px",
+                           bottom:"-200px",
+                           transform:"scaleX(-1)",
+                           }}
+                   src={building2}>
+              </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"900px",
+                           bottom:"-3px",
+                           }}
+                   src={building2}>
+              </img>
+          </div>
 
-          <img className="box"
-               style={{height:"900px",
-                       transform:`translate3d(${1500}px, ${200}px, ${-200}px)`,
+          {/*layer 3*/}
+          <div className="layer" id="layer3"
+               style={{
+                       transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
+                       filter:'brightness(40%)',
                        zIndex:'-3'}}
-                src={mountain}>
-          </img>
+          >
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"400px",
+                           bottom:"-150px",
+                           transform:"scaleX(-1)",
+                           }}
+                   src={building1}>
+              </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"800px",
+                           bottom:"-300px",
+                           }}
+                   src={building2}>
+              </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"1300px",
+                           bottom:"-100px",
+                           transform:"scaleX(-1)",
+                           }}
+                   src={building1}>
+              </img>
+          </div>
 
-          <img className="box"
-               style={{height:"900px",
-                       transform:`translate3d(${2000}px, ${100}px, ${-100}px)`,
-                       zIndex:'-3'}}
-                src={building1}>
-          </img>
 
-          <img className="box"
-               style={{height:"900px",
-                       transform:`translate3d(${2500}px, ${200}px, ${-100}px)`,
-                       zIndex:'-3'}}
-                src={building1}>
-          </img>
+          {/*layer 4 (background, does not move)*/}
 
-          <img className="box"
+
+
+
+
+          {/*
+          <img className="layer"
                style={{height:"500px",
                        transform:`translate3d(${2500}px, ${100}px, ${-50}px)`,
                        zIndex:'0',
                      }}
                src={maskon}>
-          </img>
+          </img>*/}
         </div>
 
 
