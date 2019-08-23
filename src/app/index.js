@@ -93,7 +93,7 @@ class App extends React.Component {
     }
     delta = e.deltaY;
     let scrollSpeed = -0.5;
-    let backgroundScrollSpeed = -0.2
+    let backgroundScrollSpeed = -1;
 
     document.documentElement.scrollLeft = document.documentElement.scrollLeft - (delta * scrollSpeed);
     document.body.scrollLeft = document.body.scrollLeft - (delta * scrollSpeed);
@@ -212,12 +212,28 @@ class App extends React.Component {
               </img>
           </div>
 
+          <div className="layer" id="nick"
+               style={{
+                      transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
+                      filter:'brightness(100%)',
+                      zIndex:'-3'}}
+          >
+              <img className="layerElement"
+                   style={{height:"300px",
+                           left:"450px",
+                           bottom:"400px",
+                           transform:"scaleX(-1)",
+                           }}
+                   src={fuckitmaskoff}>
+              </img>
+          </div>
+
           {/*layer 3*/}
           <div className="layer" id="layer3"
                style={{
                        transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
                        filter:'brightness(40%)',
-                       zIndex:'-3'}}
+                       zIndex:'-4'}}
           >
               <img className="layerElement"
                    style={{height:"800px",
@@ -244,21 +260,6 @@ class App extends React.Component {
               </img>
           </div>
 
-
-          {/*layer 4 (background, does not move)*/}
-
-
-
-
-
-          {/*
-          <img className="layer"
-               style={{height:"500px",
-                       transform:`translate3d(${2500}px, ${100}px, ${-50}px)`,
-                       zIndex:'0',
-                     }}
-               src={maskon}>
-          </img>*/}
         </div>
 
 
