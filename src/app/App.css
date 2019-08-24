@@ -12,7 +12,7 @@
 .scrolling-wrapper
 {
   position:absolute;
-  width:calc(8000px + 100vw);
+  width:calc(11000px + 100vw);
   height:100vh;
   bottom:0px;
   z-index:1;

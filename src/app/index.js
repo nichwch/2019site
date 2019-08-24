@@ -33,7 +33,14 @@ class App extends React.Component {
       content:(
         <React.Fragment>
           <p>Scroll to navigate.</p>
-          <p>CS@UCD<br/>React/Node developer.</p>
+          <p>motherbase_personalsite_v4.0
+          <br/>
+          My base of operations on the WWW.</p>
+          <p>find me:</p>
+          <ul>
+            <li><a href="">email</a></li>
+          </ul>
+
 
         </React.Fragment>
       )
@@ -117,12 +124,7 @@ class App extends React.Component {
 
 
 
-    // for(let child of children)
-    // {
-    //   let childTransform = this.getTranslate(child);
-    //   let newval = childTransform[0]+(delta*backgroundScrollSpeed);
-    //   this.setTranslate(newval,childTransform[1],childTransform[2],child);
-    // }
+
     let child = document.querySelector("#layer1");
     let childTransform = this.getTranslate(child);
     let newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
@@ -138,11 +140,47 @@ class App extends React.Component {
     newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
     this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
+    // console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
+    if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<3000))
+    {
+
+      child = document.querySelector("#nick");
+      childTransform = this.getTranslate(child);
+
+      //original transform is 0,180,-180
+
+      //how far through the 1000 pixel transition zone we've gotten
+      let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 2000)/1000);
+      let finalX = window.innerWidth-(window.innerWidth * 0.25);
+      let finalHeight = 800;
+      let newX = progress * (finalX);
+      let newHeight = 300 + (finalHeight*progress);
+      this.setTranslate(newX,childTransform[1],childTransform[2],child);
+      child.style.height = `${newHeight}px`;
+      console.log(child.style.height);
+    }
+
+    if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
+    {
+
+      child = document.querySelector("#nick");
+      childTransform = this.getTranslate(child);
+
+      //original transform is 0,180,-180
+
+      //how far through the 1000 pixel transition zone we've gotten
+      let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
+      let finalX = window.innerWidth-(window.innerWidth * 0.25);
+      let newX = progress * (finalX);
+      this.setTranslate(newX,childTransform[1],childTransform[2],child);
+    }
+
+
+
 
     //end
     //blog
-    console.log("SCROLL",(document.documentElement.scrollLeft||document.body.scrollLeft))
-    if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000))
+    if((document.documentElement.scrollLeft>9000 || document.body.scrollLeft>9000))
     {
       this.setState({
         title:BLOG,
@@ -158,32 +196,43 @@ class App extends React.Component {
     }
 
     //projects
-    else if((document.documentElement.scrollLeft>4000 || document.body.scrollLeft>4000))
+    else if((document.documentElement.scrollLeft>7000 || document.body.scrollLeft>7000))
     {
       this.setState({
         title:PROJECTS,
         surfer:maskon,
         content:(
           <React.Fragment>
-            <p>Scroll to navigate.</p>
-            <p>CS@UCD<br/>React/Node developer.</p>
+            <p>I love making things! Keep scrolling to see some projects I've made.</p>
+            <p>Things I use:</p>
+            <ul>
+              <li>React (HTML5,CSS,JS,Redux,Router,Bootstrap)</li>
+              <li>Node (AWS,Express,PostgreSQL)</li>
+              <li>Unity (2D)</li>
+              <li>Procreate</li>
+            </ul>
 
           </React.Fragment>
         )
       });
     }
-
     //about page
-    else if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000))
+    else if((document.documentElement.scrollLeft>3000 || document.body.scrollLeft>3000))
     {
       this.setState({
         title:ABOUT,
         surfer:fuckitmaskoff,
         content:(
           <React.Fragment>
-            <p>I'm currently a second year student at UC Davis.</p>
+            <p>I'm a sophomore at UC Davis studying CS and economics. There, I'm part of the PLASMA incubator,
+            Model UN, and boxing club.</p>
             <p>I became interested in programming after making a videogame my junior
-            year of high school</p>
+            year of high school. It's been my favorite hobby since. I especially love web programming,
+            but harbor much curiosity towards backend development, machine learning, and
+            game development as well.</p>
+            <p>My favorite videogames are Super Mario Galaxy 2, Metal Gear Solid 5, and FTL. My taste in music
+            is ever shifting - right now I'm impartial to Radiohead, 80s synth, and psychadelic rock. By the time
+            anyone reads that it'll probably have changed. </p>
 
           </React.Fragment>
         )
@@ -268,6 +317,13 @@ class App extends React.Component {
                            }}
                    src={building2}>
               </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"2500px",
+                           bottom:"-50px",
+                           }}
+                   src={building2}>
+              </img>
           </div>
 
           <div className="layer" id="nick"
@@ -277,10 +333,10 @@ class App extends React.Component {
                       zIndex:'-3'}}
           >
               <img className="layerElement"
-                   style={{height:"300px",
+                   style={{height:"1000px",
                            left:"450px",
                            bottom:"400px",
-                           transform:"scaleX(-1)",
+                           transform:"scaleX(-1) scale(0.3)",
                            }}
                    src={this.state.surfer}>
               </img>
@@ -313,6 +369,13 @@ class App extends React.Component {
                            left:"1300px",
                            bottom:"-100px",
                            transform:"scaleX(-1)",
+                           }}
+                   src={building1}>
+              </img>
+              <img className="layerElement"
+                   style={{height:"800px",
+                           left:"2800px",
+                           bottom:"-200px",
                            }}
                    src={building1}>
               </img>
