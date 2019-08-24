@@ -3,11 +3,13 @@ import './App.css';
 
 var maskon = require('../art/maskon.png');
 var fuckitmaskoff = require('../art/fuckitmaskoff.png');
-var jetboard = require('../art/jetboard.png');
 
 var mountain = require('../art/mountain.png');
 var building1 = require('../art/building1.png');
 var building2 = require('../art/building2.png');
+var building3 = require('../art/building3.png');
+var building4 = require('../art/building4.png');
+var oceanbackground = require('../art/oceanbackground.png');
 var bit1 = require('../art/bit1.png');
 var bit2 = require('../art/bit2.png');
 var bit3 = require('../art/bit3.png');
@@ -16,6 +18,28 @@ const BLOG = "Blog";
 const PROJECTS = "Projects";
 const ABOUT = "About";
 const ENTRY = "Nicholas Chen";
+
+const backgroundBox = (props) => {
+  return (<div className="layerElement"
+               style={{
+                      left:this.props.left,
+                      bottom:this.props.bottom,
+                      }}
+          >
+            <div className="backgroundBox">
+              <h1 className="titleText">
+                {props.title}
+              </h1>
+              <h2 className="subTitle">
+                [hover to expand]
+              </h2>
+              <div className="content">
+                {props.content}
+              </div>
+            </div>
+          </div>
+          )
+}
 
 
 class App extends React.Component {
@@ -32,10 +56,10 @@ class App extends React.Component {
       surfer:maskon,
       content:(
         <React.Fragment>
-          <p>Scroll to navigate.</p>
-          <p>motherbase_personalsite_v4.0
-          <br/>
-          My base of operations on the WWW.</p>
+          <p>Welcome to my base of operations on the WWW. Scroll to navigate.</p>
+          <p>
+          The animations on this site aren't crazy, but if it's frying your computer go click here for a potato friendly version.
+          </p>
           <p>find me:</p>
           <ul>
             <li><a href="">email</a></li>
@@ -140,6 +164,11 @@ class App extends React.Component {
     newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
     this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
+    // child = document.querySelector("#layer4");
+    // childTransform = this.getTranslate(child);
+    // newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+    // this.setTranslate(newval,childTransform[1],childTransform[2],child);
+
     // console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
     if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<3000))
     {
@@ -147,13 +176,13 @@ class App extends React.Component {
       child = document.querySelector("#nick");
       childTransform = this.getTranslate(child);
 
-      //original transform is 0,180,-180
+      //original transform is -450,530,-180
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 2000)/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.25);
+      let finalX = window.innerWidth-(window.innerWidth * 0.5);
       let finalHeight = 800;
-      let newX = progress * (finalX);
+      let newX = -450+progress * (finalX);
       let newHeight = 300 + (finalHeight*progress);
       this.setTranslate(newX,childTransform[1],childTransform[2],child);
       child.style.height = `${newHeight}px`;
@@ -166,12 +195,12 @@ class App extends React.Component {
       child = document.querySelector("#nick");
       childTransform = this.getTranslate(child);
 
-      //original transform is 0,180,-180
+      //original transform is -450,530,-180
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.25);
-      let newX = progress * (finalX);
+      let finalX = window.innerWidth-(window.innerWidth * 0.5);
+      let newX = -450+progress * (finalX);
       this.setTranslate(newX,childTransform[1],childTransform[2],child);
     }
 
@@ -187,8 +216,8 @@ class App extends React.Component {
         surfer:maskon,
         content:(
           <React.Fragment>
-            <p>Scroll to navigate.</p>
-            <p>CS@UCD<br/>React/Node developer.</p>
+            <p>Coming soon.</p>
+            <p>For now, here's my <a href="https://medium.com/@nichwch">medium page</a></p>
 
           </React.Fragment>
         )
@@ -267,7 +296,6 @@ class App extends React.Component {
             {this.state.content}
           </div>
         </div>
-
       </div>
 
         <div className="backgroundContainer">
@@ -300,7 +328,7 @@ class App extends React.Component {
                            left:"200px",
                            bottom:"-10px"
                            }}
-                   src={building2}>
+                   src={building3}>
               </img>
               <img className="layerElement"
                    style={{height:"800px",
@@ -315,7 +343,7 @@ class App extends React.Component {
                            left:"900px",
                            bottom:"-3px",
                            }}
-                   src={building2}>
+                   src={building3}>
               </img>
               <img className="layerElement"
                    style={{height:"800px",
@@ -326,9 +354,10 @@ class App extends React.Component {
               </img>
           </div>
 
+          {/*surfer*/}
           <div className="layer" id="nick"
                style={{
-                      transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
+                      transform:`translate3d(${-450}px, ${570}px, ${-180}px)`,
                       filter:'brightness(100%)',
                       zIndex:'-3'}}
           >
@@ -355,7 +384,7 @@ class App extends React.Component {
                            bottom:"-150px",
                            transform:"scaleX(-1)",
                            }}
-                   src={building1}>
+                   src={building3}>
               </img>
               <img className="layerElement"
                    style={{height:"800px",
@@ -364,6 +393,13 @@ class App extends React.Component {
                            }}
                    src={building2}>
               </img>
+
+              <backgroundBox left={800}
+                             bottom={-300}
+                             title={this.state.title}
+                             content={this.state.content}
+              />
+
               <img className="layerElement"
                    style={{height:"800px",
                            left:"1300px",
@@ -377,11 +413,30 @@ class App extends React.Component {
                            left:"2800px",
                            bottom:"-200px",
                            }}
-                   src={building1}>
+                   src={building4}>
               </img>
           </div>
 
+          <div className="layer" id="layer4"
+               style={{
+                      transform:`translate3d(${0}px, ${-1500}px, ${-900}px)`,
+                      zIndex:'-5'}}
+          >
+                <img className="layerElement"
+                     style={{height:"1000px",
+                            transform:"scale(6)",
+                            filter:""
+                              // left:"450px",
+                              // bottom:"400px",
+                              // transform:"scaleX(-1) scale(0.3)",
+                           }}
+                     src={oceanbackground}>
+                </img>
+          </div>
+
         </div>
+
+
 
 
 
@@ -391,5 +446,7 @@ class App extends React.Component {
   }
 
 }
+
+
 
 export default App;
