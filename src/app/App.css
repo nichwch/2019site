@@ -12,10 +12,10 @@
 .scrolling-wrapper
 {
   position:absolute;
-  width:50000px;
+  width:calc(8000px + 100vw);
   height:100vh;
   bottom:0px;
-  z-index:900000;
+  z-index:1;
 }
 
 .backgroundContainer
@@ -45,25 +45,83 @@
   bottom:0px;
 }
 
-.layerElement:hover
-{
-  background-color:red;
-}
-
 .contentLayer
 {
   position:fixed;
-  margin:50px;
-  height:calc(100vh - 100px);
-  width:calc(100vw - 100px);
-  background-color:red;
-  z-index:1;
+  margin:0px;
+  padding:0px;
+  height:100vh;
+  width:100vw;
 
-  overflow-x:hidden;
-  overflow-y:hidden;
+  z-index:5;
+}
+
+.mainBox
+{
+  margin-left:50px;
+  margin-top:20vh;
+  margin-bottom:20vh;
+  height:calc(10vh);
+  width:calc(40vh);
+
+  border:2px solid black;
+  background-color:rgb(247,119,84,0.8);
+  padding:20px;
+  /* color:rgb(255, 0, 50,0.7); */
+
+  transition: height 0.07s, padding 0.07s, background-color 0.07s;
+}
+
+.mainBox:hover
+{
+  padding:50px;
+  height:auto;
+  background-color:rgb(247,119,84,0.95);
+  /* color:rgb(255, 0, 0,0.7); */
+}
+
+.titleText
+{
+  display:inline-block;
+  font-size:4vh;
+  margin:0px;
+  /* color:rgb(255, 0, 50,0.7);
+  background-color:rgb(-255, 0, 0,0.7); */
+}
+
+.subTitle
+{
+  margin:0px;
+  font-size:2vh;
+}
+
+.mainBox .subTitle
+{
+  transition:letter-spacing 0.07s, color 0.07s;
+}
+.mainBox:hover .subTitle
+{
+  letter-spacing:0.5vw;
+  color:white;
+}
+
+.mainBox .content
+{
+  display:none;
+  font-size:0vh;
+  font-weight:bold;
+  transition:font-size 0.07s;
+}
+
+.mainBox:hover .content
+{
+  display:block;
+  font-size:1.7vh;
+  height:auto;
 }
 
 body
 {
+  font-family: 'Roboto Mono', monospace;
   overflow: hidden;
 }

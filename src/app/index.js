@@ -12,18 +12,32 @@ var bit1 = require('../art/bit1.png');
 var bit2 = require('../art/bit2.png');
 var bit3 = require('../art/bit3.png');
 
+const BLOG = "Blog";
+const PROJECTS = "Projects";
+const ABOUT = "About";
+const ENTRY = "Nicholas Chen";
+
 
 class App extends React.Component {
 
   constructor(props)
   {
     super(props);
-    this.state =
-    {
-      text:"hello world"
+    this.state = this.getInitialState();
+  }
+
+  getInitialState = () => {
+    return {
+      title:ENTRY,
+      surfer:maskon,
+      content:(
+        <React.Fragment>
+          <p>Scroll to navigate.</p>
+          <p>CS@UCD<br/>React/Node developer.</p>
+
+        </React.Fragment>
+      )
     }
-
-
   }
 
   componentDidMount()
@@ -102,54 +116,84 @@ class App extends React.Component {
     let children = backgroundContainer.children;
 
 
-    if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
-    {
-      // for(let child of children)
-      // {
-      //   let childTransform = this.getTranslate(child);
-      //   let newval = childTransform[0]+(delta*backgroundScrollSpeed);
-      //   this.setTranslate(newval,childTransform[1],childTransform[2],child);
-      // }
-      let child = document.querySelector("#layer1");
-      let childTransform = this.getTranslate(child);
-      let newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
-      this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
-      child = document.querySelector("#layer2");
-      childTransform = this.getTranslate(child);
-      newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
-      this.setTranslate(newval,childTransform[1],childTransform[2],child);
+    // for(let child of children)
+    // {
+    //   let childTransform = this.getTranslate(child);
+    //   let newval = childTransform[0]+(delta*backgroundScrollSpeed);
+    //   this.setTranslate(newval,childTransform[1],childTransform[2],child);
+    // }
+    let child = document.querySelector("#layer1");
+    let childTransform = this.getTranslate(child);
+    let newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+    this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
-      child = document.querySelector("#layer3");
-      childTransform = this.getTranslate(child);
-      newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
-      this.setTranslate(newval,childTransform[1],childTransform[2],child);
+    child = document.querySelector("#layer2");
+    childTransform = this.getTranslate(child);
+    newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+    this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
-    }
+    child = document.querySelector("#layer3");
+    childTransform = this.getTranslate(child);
+    newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
+    this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
-    if((document.documentElement.scrollLeft>600 || document.body.scrollLeft>600))
+
+    //end
+    //blog
+    console.log("SCROLL",(document.documentElement.scrollLeft||document.body.scrollLeft))
+    if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000))
     {
       this.setState({
-        text:"text3"
+        title:BLOG,
+        surfer:maskon,
+        content:(
+          <React.Fragment>
+            <p>Scroll to navigate.</p>
+            <p>CS@UCD<br/>React/Node developer.</p>
+
+          </React.Fragment>
+        )
       });
     }
-    else if((document.documentElement.scrollLeft>400 || document.body.scrollLeft>400))
+
+    //projects
+    else if((document.documentElement.scrollLeft>4000 || document.body.scrollLeft>4000))
     {
       this.setState({
-        text:"text2"
+        title:PROJECTS,
+        surfer:maskon,
+        content:(
+          <React.Fragment>
+            <p>Scroll to navigate.</p>
+            <p>CS@UCD<br/>React/Node developer.</p>
+
+          </React.Fragment>
+        )
       });
     }
-    else if((document.documentElement.scrollLeft>200 || document.body.scrollLeft>200))
+
+    //about page
+    else if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000))
     {
       this.setState({
-        text:"text1"
+        title:ABOUT,
+        surfer:fuckitmaskoff,
+        content:(
+          <React.Fragment>
+            <p>I'm currently a second year student at UC Davis.</p>
+            <p>I became interested in programming after making a videogame my junior
+            year of high school</p>
+
+          </React.Fragment>
+        )
       });
     }
-    else if((document.documentElement.scrollLeft<200 || document.body.scrollLeft<200))
+
+    //start
+    else if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
     {
-      this.setState({
-        text:"text0"
-      });
+      this.setState(this.getInitialState());
     }
 
   }
@@ -161,8 +205,22 @@ class App extends React.Component {
       <div id="scrolling-wrapper" className="scrolling-wrapper">
 
       </div>
-      {/*<div className="contentLayer">
-      </div>*/}
+
+      <div className="contentLayer">
+        <div className="mainBox">
+          <h1 className="titleText">
+            {this.state.title}
+          </h1>
+          <h2 className="subTitle">
+            [hover to expand]
+          </h2>
+          <div className="content">
+            {this.state.content}
+          </div>
+        </div>
+
+      </div>
+
         <div className="backgroundContainer">
 
 
@@ -224,7 +282,7 @@ class App extends React.Component {
                            bottom:"400px",
                            transform:"scaleX(-1)",
                            }}
-                   src={fuckitmaskoff}>
+                   src={this.state.surfer}>
               </img>
           </div>
 
@@ -263,10 +321,7 @@ class App extends React.Component {
         </div>
 
 
-        <div className="foreground">
-          {this.state.text}
 
-        </div>
 
     </React.Fragment>
     );
