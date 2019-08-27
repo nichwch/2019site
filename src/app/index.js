@@ -506,6 +506,32 @@ class App extends React.Component {
                           }}
                     src={building3}>
               </img>
+
+              <img  className="layerElement"
+                    style={{height:"700px",
+                            filter:'brightness(80%)',
+                            left:"4600px",
+                            bottom:"-200px"
+                          }}
+                    src={building4}>
+              </img>
+
+              <img  className="layerElement"
+                    style={{height:"700px",
+                            filter:'brightness(80%)',
+                            left:"5600px"
+                          }}
+                    src={building1}>
+              </img>
+
+              <img  className="layerElement"
+                    style={{height:"700px",
+                            filter:'brightness(80%)',
+                            left:"6600px",
+                            bottom:"-100px"
+                          }}
+                    src={building2}>
+              </img>
           </div>
 
           <div className="layer" id="layer4"
