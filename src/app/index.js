@@ -189,9 +189,9 @@ class App extends React.Component {
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 2000)/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.65);
-      let newX = -450+progress * (finalX);
-      this.setTranslate(newX,childTransform[1],childTransform[2],child);
+      // let finalX = window.innerWidth-(window.innerWidth * 0.65);
+      // let newX = -450+progress * (finalX);
+      // this.setTranslate(newX,childTransform[1],childTransform[2],child);
 
 
       let childImage = document.querySelector("#nickImage");
@@ -207,9 +207,9 @@ class App extends React.Component {
       childImage.style.transform = `scaleX(-1) scale(${1.3})`;
       let nick = document.querySelector("#nick");
 
-      childTransform = this.getTranslate(nick);
-      let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
-      this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
+      // childTransform = this.getTranslate(nick);
+      // let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
+      // this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
     }
 
     if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
@@ -222,9 +222,9 @@ class App extends React.Component {
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.65);
-      let newX = -450+progress * (finalX);
-      this.setTranslate(newX,childTransform[1],childTransform[2],child);
+      // let finalX = window.innerWidth-(window.innerWidth * 0.65);
+      // let newX = -450+progress * (finalX);
+      // this.setTranslate(newX,childTransform[1],childTransform[2],child);
 
       let childImage = document.querySelector("#nickImage");
       let finalScale = 1;
@@ -238,9 +238,9 @@ class App extends React.Component {
       childImage.style.transform = `scaleX(-1) scale(${0.3})`;
       let nick = document.querySelector("#nick");
 
-      childTransform = this.getTranslate(nick);
-      let finalX = -450;
-      this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
+      // childTransform = this.getTranslate(nick);
+      // let finalX = -450;
+      // this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
     }
 
 
@@ -411,7 +411,7 @@ class App extends React.Component {
               </img>
               <img className="layerElement"
                    style={{height:"800px",
-                           left:"2500px",
+                           left:"2300px",
                            bottom:"-50px",
                            }}
                    src={building2}>
