@@ -19,11 +19,11 @@ const PROJECTS = "Projects";
 const ABOUT = "About";
 const ENTRY = "Nicholas Chen";
 
-const backgroundBox = (props) => {
+const BackgroundBox = (props) => {
   return (<div className="layerElement"
                style={{
-                      left:this.props.left,
-                      bottom:this.props.bottom,
+                      left:props.left,
+                      bottom:props.bottom,
                       }}
           >
             <div className="backgroundBox">
@@ -33,9 +33,6 @@ const backgroundBox = (props) => {
               <h2 className="subTitle">
                 [hover to expand]
               </h2>
-              <div className="content">
-                {props.content}
-              </div>
             </div>
           </div>
           )
@@ -56,7 +53,7 @@ class App extends React.Component {
       surfer:maskon,
       content:(
         <React.Fragment>
-          <p>Welcome to my base of operations on the WWW. Scroll to navigate.</p>
+          <p>Scroll to navigate.<br/>[HQ v4.0]</p>
           <p>
           The animations on this site aren't crazy, but if it's frying your computer go click here for a potato friendly version.
           </p>
@@ -170,6 +167,18 @@ class App extends React.Component {
     // this.setTranslate(newval,childTransform[1],childTransform[2],child);
 
     // console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
+
+    if((document.documentElement.scrollLeft|| document.body.scrollLeft)<2000)
+    {
+      let childImage = document.querySelector("#nickImage");
+      childImage.style.transform = `scaleX(-1) scale(${0.3})`;
+      let nick = document.querySelector("#nick");
+
+      childTransform = this.getTranslate(nick);
+      let finalX = -450;
+      this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
+    }
+
     if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<3000))
     {
 
@@ -180,13 +189,27 @@ class App extends React.Component {
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 2000)/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.5);
-      let finalHeight = 800;
+      let finalX = window.innerWidth-(window.innerWidth * 0.65);
       let newX = -450+progress * (finalX);
-      let newHeight = 300 + (finalHeight*progress);
       this.setTranslate(newX,childTransform[1],childTransform[2],child);
-      child.style.height = `${newHeight}px`;
-      console.log(child.style.height);
+
+
+      let childImage = document.querySelector("#nickImage");
+      let finalScale = 1;
+      let newScale = 0.3 + (progress*finalScale);
+      childImage.style.transform = `scaleX(-1) scale(${newScale})`;
+
+    }
+
+    if((document.documentElement.scrollLeft>3000 || document.body.scrollLeft>3000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
+    {
+      let childImage = document.querySelector("#nickImage");
+      childImage.style.transform = `scaleX(-1) scale(${1.3})`;
+      let nick = document.querySelector("#nick");
+
+      childTransform = this.getTranslate(nick);
+      let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
+      this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
     }
 
     if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
@@ -199,10 +222,27 @@ class App extends React.Component {
 
       //how far through the 1000 pixel transition zone we've gotten
       let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
-      let finalX = window.innerWidth-(window.innerWidth * 0.5);
+      let finalX = window.innerWidth-(window.innerWidth * 0.65);
       let newX = -450+progress * (finalX);
       this.setTranslate(newX,childTransform[1],childTransform[2],child);
+
+      let childImage = document.querySelector("#nickImage");
+      let finalScale = 1;
+      let newScale = 0.3 + (progress*finalScale);
+      childImage.style.transform = `scaleX(-1) scale(${newScale})`;
     }
+
+    if((document.documentElement.scrollLeft|| document.body.scrollLeft)>7000)
+    {
+      let childImage = document.querySelector("#nickImage");
+      childImage.style.transform = `scaleX(-1) scale(${0.3})`;
+      let nick = document.querySelector("#nick");
+
+      childTransform = this.getTranslate(nick);
+      let finalX = -450;
+      this.setTranslate(finalX,childTransform[1],childTransform[2],nick);
+    }
+
 
 
 
@@ -253,6 +293,7 @@ class App extends React.Component {
         surfer:fuckitmaskoff,
         content:(
           <React.Fragment>
+            <p>That's me to the right! I don't really skateboard.</p>
             <p>I'm a sophomore at UC Davis studying CS and economics. There, I'm part of the PLASMA incubator,
             Model UN, and boxing club.</p>
             <p>I became interested in programming after making a videogame my junior
@@ -305,7 +346,7 @@ class App extends React.Component {
           <div className="layer" id="layer1"
                style={{
                   transform:`translate3d(${0}px, ${0}px, ${40}px)`,
-                  zIndex:'-1'}}
+                  zIndex:'-2'}}
           >
               <img  className="layerElement"
                     style={{height:"700px",
@@ -314,6 +355,17 @@ class App extends React.Component {
                           }}
                     src={building1}>
               </img>
+              <BackgroundBox left={800}
+                             bottom={200}
+                             title={this.state.title}
+
+              />
+
+              <BackgroundBox left={2300}
+                             bottom={200}
+                             title={this.state.title}
+
+              />
           </div>
 
           {/*layer 2*/}
@@ -321,7 +373,7 @@ class App extends React.Component {
                style={{
                        transform:`translate3d(${0}px, ${90}px, ${-90}px)`,
                        filter:'brightness(60%)',
-                       zIndex:'-2'}}
+                       zIndex:'-4'}}
           >
               <img className="layerElement"
                    style={{height:"800px",
@@ -330,6 +382,11 @@ class App extends React.Component {
                            }}
                    src={building3}>
               </img>
+              <BackgroundBox left={200}
+                             bottom={200}
+                             title={this.state.title}
+
+              />
               <img className="layerElement"
                    style={{height:"800px",
                            left:"500px",
@@ -338,6 +395,13 @@ class App extends React.Component {
                            }}
                    src={building2}>
               </img>
+
+              <BackgroundBox left={550}
+                             bottom={0}
+                             title={this.state.title}
+
+              />
+
               <img className="layerElement"
                    style={{height:"800px",
                            left:"900px",
@@ -352,6 +416,19 @@ class App extends React.Component {
                            }}
                    src={building2}>
               </img>
+
+              <BackgroundBox left={3100}
+                             bottom={600}
+                             title={this.state.title}
+
+              />
+              <BackgroundBox left={2950}
+                             bottom={400}
+                             title={this.state.title}
+
+              />
+
+
           </div>
 
           {/*surfer*/}
@@ -359,9 +436,10 @@ class App extends React.Component {
                style={{
                       transform:`translate3d(${-450}px, ${570}px, ${-180}px)`,
                       filter:'brightness(100%)',
-                      zIndex:'-3'}}
+                      zIndex:'-6'}}
           >
               <img className="layerElement"
+                   id="nickImage"
                    style={{height:"1000px",
                            left:"450px",
                            bottom:"400px",
@@ -376,7 +454,7 @@ class App extends React.Component {
                style={{
                        transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
                        filter:'brightness(40%)',
-                       zIndex:'-4'}}
+                       zIndex:'-8'}}
           >
               <img className="layerElement"
                    style={{height:"800px",
@@ -394,10 +472,15 @@ class App extends React.Component {
                    src={building2}>
               </img>
 
-              <backgroundBox left={800}
-                             bottom={-300}
+              <BackgroundBox left={550}
+                             bottom={0}
                              title={this.state.title}
-                             content={this.state.content}
+
+              />
+              <BackgroundBox left={450}
+                             bottom={300}
+                             title={this.state.title}
+
               />
 
               <img className="layerElement"
@@ -415,12 +498,20 @@ class App extends React.Component {
                            }}
                    src={building4}>
               </img>
+
+              <img  className="layerElement"
+                    style={{height:"700px",
+                            filter:'brightness(80%)',
+                            left:"3600px"
+                          }}
+                    src={building3}>
+              </img>
           </div>
 
           <div className="layer" id="layer4"
                style={{
                       transform:`translate3d(${0}px, ${-1500}px, ${-900}px)`,
-                      zIndex:'-5'}}
+                      zIndex:'-10'}}
           >
                 <img className="layerElement"
                      style={{height:"1000px",
