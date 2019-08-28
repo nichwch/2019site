@@ -45,6 +45,8 @@
   bottom:0px;
 }
 
+
+
 .contentLayer
 {
   position:fixed;
@@ -56,10 +58,34 @@
   z-index:5;
 }
 
+.navContainer
+{
+  display:inline-block;
+  height:calc(60vh);
+  width:calc(10vh + 40px);
+  margin-top:10vh;
+  margin-left:30px;
+  vertical-align:top;
+}
+
+.navEl
+{
+  position:block;
+  background-color:rgb(247,119,84,0.8);
+  height:calc(10vh + 21px);
+  width:calc(10vh + 21px);
+  border:2px solid black;
+  padding:10px;
+  margin:0px;
+  margin-bottom:calc(2.5vh);
+  text-align:center;
+}
+
 .mainBox,.backgroundBox
 {
-  margin-left:50px;
-  margin-top:20vh;
+  display:inline-block;
+  margin-left:30px;
+  margin-top:10vh;
   margin-bottom:20vh;
   height:calc(10vh);
   width:calc(40vh);
