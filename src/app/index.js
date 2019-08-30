@@ -71,7 +71,7 @@ class App extends React.Component {
   componentDidMount()
   {
 
-    console.log(window.location.hash);
+    console.log(window.location);
     window.scrollTo(0,0);
 
     var throttle = function(type, name, obj) {
