@@ -327,20 +327,6 @@ class App extends React.Component {
 
       <div className="contentLayer">
 
-        <div className = "navContainer">
-          <div className = "navEl" id="About">
-            About
-          </div>
-
-          <div className = "navEl" id="About">
-            Projects
-          </div>
-
-          <div className = "navEl" id="About">
-            Blog
-          </div>
-        </div>
-
         <div className="mainBox">
           <h1 className="titleText">
             {this.state.title}
