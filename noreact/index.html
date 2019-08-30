@@ -24,7 +24,7 @@
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      Unlike "/favicon.ico" or "favicon.ico; "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
@@ -61,11 +61,10 @@
               <img  class="layerElement"
                     style="height:700px;
                           filter:brightness(80%);
-                          left:600px;
-                          "
-                    src={building1}>
+                          left:600px;"
+                    src="./art/building1.png">
               </img>
-              <BackgroundBox left={800}
+              <!-- <BackgroundBox left={800}
                              bottom={200}
                              title={this.state.title}
 
@@ -75,59 +74,58 @@
                              bottom={200}
                              title={this.state.title}
 
-              />
+              /> -->
           </div>
 
-          {/*layer 2*/}
           <div class="layer" id="layer2"
                style="
-                       transform:`translate3d(${0}px, ${90}px, ${-90}px)`,
-                       filter:'brightness(60%)',
-                       zIndex:'-4'"
+                       transform:`translate3d(0px, 90px, -90px)`,
+                       filter:brightness(60%);
+                       z-index:-4;"
           >
               <img class="layerElement"
                    style="height:800px;
                            left:200px;
                            bottom:-10px;
                            "
-                   src={building3}>
+                   src="./art/building3.png">
               </img>
-              <BackgroundBox left={200}
+              <!-- <BackgroundBox left={200}
                              bottom={200}
                              title={this.state.title}
 
-              />
+              /> -->
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"500px",
-                           bottom:"-200px",
-                           transform:"scaleX(-1)",
+                   style="height:800px;
+                           left:500px;
+                           bottom:-200px;
+                           transform:scaleX(-1);
                            "
-                   src={building2}>
+                   src="./art/building2.png">
               </img>
 
-              <BackgroundBox left={550}
+              <!-- <BackgroundBox left={550}
                              bottom={0}
                              title={this.state.title}
 
-              />
+              /> -->
 
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"900px",
-                           bottom:"-3px",
+                   style="height:800px;
+                           left:900px;
+                           bottom:-3px;
                            "
-                   src={building3}>
+                   src="./art/building3.png">
               </img>
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"2300px",
-                           bottom:"-50px",
+                   style="height:800px;
+                           left:2300px;
+                           bottom:-50px;
                            "
-                   src={building2}>
+                   src="./art/building2.png">
               </img>
 
-              <BackgroundBox left={3100}
+              <!-- <BackgroundBox left={3100}
                              bottom={600}
                              title={this.state.title}
 
@@ -136,53 +134,53 @@
                              bottom={400}
                              title={this.state.title}
 
-              />
+              /> -->
 
 
           </div>
 
-          {/*surfer*/}
+          <!-- {/*surfer*/} -->
           <div class="layer" id="nick"
                style="
-                      transform:`translate3d(${-450}px, ${570}px, ${-180}px)`,
-                      filter:'brightness(100%)',
-                      zIndex:'-6'"
+                      transform:translate3d(-450px, 570px, -180px);
+                      filter:brightness(100%);
+                      z-index:-6;"
           >
               <img class="layerElement"
                    id="nickImage"
-                   style="height:"1000px",
-                           left:"450px",
-                           bottom:"400px",
-                           transform:"scaleX(-1) scale(0.3)",
+                   style="height:1000px;
+                           left:450px;
+                           bottom:400px;
+                           transform:scaleX(-1) scale(0.3);
                            "
-                   src={this.state.surfer}>
+                   src="./art/maskon.png">
               </img>
           </div>
 
           {/*layer 3*/}
           <div class="layer" id="layer3"
                style="
-                       transform:`translate3d(${0}px, ${180}px, ${-180}px)`,
-                       filter:'brightness(40%)',
-                       zIndex:'-8'"
+                       transform:`translate3d(0px, 180px, -180px)`,
+                       filter:brightness(40%);
+                       z-index:-8;"
           >
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"400px",
-                           bottom:"-150px",
-                           transform:"scaleX(-1)",
+                   style="height:800px;
+                           left:400px;
+                           bottom:-150px;
+                           transform:scaleX(-1);
                            "
-                   src={building3}>
+                   src="./art/building3.png">
               </img>
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"800px",
-                           bottom:"-300px",
+                   style="height:800px;
+                           left:800px;
+                           bottom:-300px;
                            "
-                   src={building2}>
+                   src="./art/building2.png">
               </img>
 
-              <BackgroundBox left={550}
+              <!-- <BackgroundBox left={550}
                              bottom={0}
                              title={this.state.title}
 
@@ -191,73 +189,68 @@
                              bottom={300}
                              title={this.state.title}
 
-              />
+              /> -->
 
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"1300px",
-                           bottom:"-100px",
-                           transform:"scaleX(-1)",
+                   style="height:800px;
+                           left:1300px;
+                           bottom:-100px;
+                           transform:scaleX(-1);
                            "
-                   src={building1}>
+                   src="./art/building1.png">
               </img>
               <img class="layerElement"
-                   style="height:"800px",
-                           left:"2800px",
-                           bottom:"-200px",
+                   style="height:800px;
+                           left:2800px;
+                           bottom:-200px;
                            "
-                   src={building4}>
+                   src="./art/building4.png">
               </img>
 
               <img  class="layerElement"
-                    style="height:"700px",
-                            filter:'brightness(80%)',
-                            left:"3600px"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:3600px
                           "
-                    src={building3}>
+                    src="./art/building3.png">
               </img>
 
               <img  class="layerElement"
-                    style="height:"700px",
-                            filter:'brightness(80%)',
-                            left:"4600px",
-                            bottom:"-200px"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:4600px;
+                            bottom:-200px
                           "
-                    src={building4}>
+                    src="./art/building4.png">
               </img>
 
               <img  class="layerElement"
-                    style="height:"700px",
-                            filter:'brightness(80%)',
-                            left:"5600px"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:5600px;
                           "
-                    src={building1}>
+                    src="./art/building1.png">
               </img>
 
               <img  class="layerElement"
-                    style="height:"700px",
-                            filter:'brightness(80%)',
-                            left:"6600px",
-                            bottom:"-100px"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:6600px;
+                            bottom:-100px;
                           "
-                    src={building2}>
+                    src="./art/building2.png">
               </img>
           </div>
 
           <div class="layer" id="layer4"
                style="
-                      transform:`translate3d(${0}px, ${-1500}px, ${-900}px)`,
-                      zIndex:'-10'"
+                      transform:translate3d(0px, -1500px, -900px);
+                      z-index:-10;"
           >
                 <img class="layerElement"
-                     style="height:"1000px",
-                            transform:"scale(6)",
-                            filter:""
-                              // left:"450px",
-                              // bottom:"400px",
-                              // transform:"scaleX(-1) scale(0.3)",
-                           "
-                     src={oceanbackground}>
+                     style="height:1000px;
+                            transform:scale(6);"
+                     src="./art/oceanbackground.png">
                 </img>
           </div>
 
