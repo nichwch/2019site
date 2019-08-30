@@ -66,64 +66,64 @@ const handleScroll = (e) =>
   newval = (document.documentElement.scrollLeft||document.body.scrollLeft)*backgroundScrollSpeed;
   setTranslate(newval,childTransform[1],childTransform[2],layer3);
 
-  // console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
+  console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
 
-  if((document.documentElement.scrollLeft|| document.body.scrollLeft)<2000)
-  {
-    nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
-  }
-
-  if((document.documentElement.scrollLeft>2000 || document.body.scrollLeft>2000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<3000))
-  {
-    childTransform = getTranslate(nick);
-
-    //original transform is -450,530,-180
-
-    //how far through the 1000 pixel transition zone we've gotten
-    let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 2000)/1000);
-    // let finalX = window.innerWidth-(window.innerWidth * 0.65);
-    // let newX = -450+progress * (finalX);
-    // setTranslate(newX,childTransform[1],childTransform[2],child);
-
-    let finalScale = 1;
-    let newScale = 0.3 + (progress*finalScale);
-    nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
-
-  }
-
-  if((document.documentElement.scrollLeft>3000 || document.body.scrollLeft>3000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
-  {
-    nickImage.style.transform = `scaleX(-1) scale(${1.3})`;
-
-    // childTransform = getTranslate(nick);
-    // let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
-    // setTranslate(finalX,childTransform[1],childTransform[2],nick);
-  }
-
-  if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
-  {
-    childTransform = getTranslate(nick);
-
-    //original transform is -450,530,-180
-
-    //how far through the 1000 pixel transition zone we've gotten
-    let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
-    // let finalX = window.innerWidth-(window.innerWidth * 0.65);
-    // let newX = -450+progress * (finalX);
-    // setTranslate(newX,childTransform[1],childTransform[2],child);
-    let finalScale = 1;
-    let newScale = 0.3 + (progress*finalScale);
-    nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
-  }
-
-  if((document.documentElement.scrollLeft|| document.body.scrollLeft)>7000)
-  {
-    nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
-
-    // childTransform = getTranslate(nick);
-    // let finalX = -450;
-    // setTranslate(finalX,childTransform[1],childTransform[2],nick);
-  }
+  // if((document.documentElement.scrollLeft|| document.body.scrollLeft)<4000)
+  // {
+  //   nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
+  // }
+  //
+  // if((document.documentElement.scrollLeft>4000 || document.body.scrollLeft>4000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<5000))
+  // {
+  //   childTransform = getTranslate(nick);
+  //
+  //   //original transform is -450,530,-180
+  //
+  //   //how far through the 1000 pixel transition zone we've gotten
+  //   let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 4000)/1000);
+  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65);
+  //   // let newX = -450+progress * (finalX);
+  //   // setTranslate(newX,childTransform[1],childTransform[2],child);
+  //
+  //   let finalScale = 1;
+  //   let newScale = 0.3 + (progress*finalScale);
+  //   nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
+  //
+  // }
+  //
+  // if((document.documentElement.scrollLeft>5000 || document.body.scrollLeft>5000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
+  // {
+  //   nickImage.style.transform = `scaleX(-1) scale(${1.3})`;
+  //
+  //   // childTransform = getTranslate(nick);
+  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
+  //   // setTranslate(finalX,childTransform[1],childTransform[2],nick);
+  // }
+  //
+  // if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
+  // {
+  //   childTransform = getTranslate(nick);
+  //
+  //   //original transform is -450,530,-180
+  //
+  //   //how far through the 1000 pixel transition zone we've gotten
+  //   let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
+  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65);
+  //   // let newX = -450+progress * (finalX);
+  //   // setTranslate(newX,childTransform[1],childTransform[2],child);
+  //   let finalScale = 1;
+  //   let newScale = 0.3 + (progress*finalScale);
+  //   nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
+  // }
+  //
+  // if((document.documentElement.scrollLeft|| document.body.scrollLeft)>7000)
+  // {
+  //   nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
+  //
+  //   // childTransform = getTranslate(nick);
+  //   // let finalX = -450;
+  //   // setTranslate(finalX,childTransform[1],childTransform[2],nick);
+  // }
 
 
 
@@ -166,10 +166,12 @@ const handleScroll = (e) =>
     //     </React.Fragment>
     //   )
     // });
+    nickImage.className = "layerElement nickImageC";
   }
   //about page
-  else if((document.documentElement.scrollLeft>3000 || document.body.scrollLeft>3000))
+  else if((document.documentElement.scrollLeft>5000 || document.body.scrollLeft>5000))
   {
+    nickImage.className = "layerElement nickImageC zoomedIn";
     // setState({
     //   title:ABOUT,
     //   surfer:fuckitmaskoff,
@@ -194,6 +196,7 @@ const handleScroll = (e) =>
   //start
   else if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
   {
+    nickImage.className = "layerElement nickImageC";
     // setState(getInitialState());
   }
 
@@ -219,5 +222,8 @@ var throttle = function(type, name, obj) {
 };
 throttle ("wheel", "optimizedScroll");
 
-window.addEventListener('optimizedScroll',handleScroll
+window.addEventListener('optimizedScroll',handleScroll,
+{
+  passive:true
+}
 );

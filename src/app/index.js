@@ -19,6 +19,12 @@ const PROJECTS = "Projects";
 const ABOUT = "About";
 const ENTRY = "Nicholas Chen";
 
+var layer1;
+var layer2;
+var layer3;
+var nickImage;
+var nick;
+
 const BackgroundBox = (props) => {
   return (<div className="layerElement"
                style={{
@@ -97,6 +103,12 @@ class App extends React.Component {
         passive: true
       }
     );
+
+    layer1 = document.getElementById("layer1");
+    layer2 = document.getElementById("layer2");
+    layer3 = document.getElementById("layer3");
+    nickImage = document.getElementById("nickImage");
+    nick = document.getElementById("nick");
   }
 
   setTranslate = (xPos, yPos, zPos,el) => {
