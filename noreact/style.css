@@ -155,8 +155,7 @@
 
 .nickImageC{
   transform: scaleX(-1) scale(0.6);
-  transition: transform 1s;
-  transition-timing-function:ease-out;
+  transition: transform 0.7s;
 }
 
 .nickImageC.zoomedIn
