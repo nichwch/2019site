@@ -209,3 +209,19 @@ window.addEventListener('optimizedScroll',handleScroll,
   passive:true
 }
 );
+
+window.addEventListener('keydown',(e)=>{
+  console.log(e.code);
+  if(e.code==="ArrowRight")
+  {
+    // document.documentElement.scrollLeft = document.documentElement.scrollLeft + 500;
+    // document.body.scrollLeft = document.body.scrollLeft + 500;
+    handleScroll({deltaY:500,deltaX:0});
+  }
+  else if(e.code==="ArrowLeft")
+  {
+    // document.documentElement.scrollLeft = document.documentElement.scrollLeft - 500;
+    // document.body.scrollLeft = document.body.scrollLeft - 500;
+    handleScroll({deltaY:-500,deltaX:0});
+  }
+});
