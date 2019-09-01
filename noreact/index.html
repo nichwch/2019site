@@ -34,20 +34,64 @@
     <div id="root">
       <div>
       <div id="scrolling-wrapper" class="scrolling-wrapper">
+        <div class="projectsPanel">
+          <div>
+            <h1>Projects</h1>
+          </div>
+          <div class="project">
+            <img src="./art/epsilearn.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">Epsilearn</h1>
+            <p class="projectContent">
+              Epsilearn is an educational content aggregator I'm developing with Torin Keenan.
+              It's being developed as part of <a href="https://ucplasma.com/">UC Davis' Prototyping Labs And Startup Mentorship</a> program.
+              You can find an alpha version <a href="https://epsilearn.co">here</a>.
+            </p>
+          </div>
+          <div class="project">
+            <img src="./art/YANA.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">YANA</h1>
+            <p class="projectContent">
+              <a href="http://yananotes.com/">YANA</a> is my own personal notetaking app.
+              It's designed to help disorganized people (like myself) keep their ideas and
+              thoughts neatly sorted, in an intuitive way.
+            </p>
+          </div>
+          <div class="project">
+            <img src="./art/game.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">Games</h1>
+            <p class="projectContent">
+              I make videogames sometime. You can find them on <a href="https://nichwch.itch.io/">itch.io</a>.
+              <br/>
+              </br/>
+              My last game, <a href="https://apps.apple.com/us/app/the-hanging-gardens/id1436229531">The Hanging Gardens</a>,
+              has over 900 downloads on the App Store.
+            </p>
+          </div>
+        </div>
+        <div id="stopper">
 
+        </div>
       </div>
 
       <div class="contentLayer">
 
-        <div class="mainBox">
-          <h1 class="titleText">
+        <div class="mainBox appear" id="mainBox">
+          <h1 class="titleText" id="titleText">
             Nicholas Chen
           </h1>
-          <h2 class="subTitle">
+          <h2 class="subTitle" id="subTitle">
             [hover to expand]
           </h2>
-          <div class="content">
-            {this.state.content}
+          <div class="content" id="content">
+            <p>Scroll to navigate.<br/>[HQ v4.0]</p>
+            <p>
+            Animations running slowly? Use the <a href="./potato">potato version</a>
+            </p>
+            <p>find me:</p>
+            <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="www.linkedin.com/in/nicholas-chen-developer">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
           </div>
         </div>
       </div>
@@ -117,13 +161,13 @@
                            "
                    src="./art/building3.png">
               </img>
-              <img class="layerElement"
+              <!-- <img class="layerElement"
                    style="height:800px;
                            left:1500px;
                            bottom:-50px;
                            "
                    src="./art/building2.png">
-              </img>
+              </img> -->
 
               <!-- <BackgroundBox left={3100}
                              bottom={600}
@@ -149,8 +193,8 @@
               <img class="layerElement nickImageC"
                   id="nickImage"
                   style="height:500px;
-                          left:450px;
-                          bottom:400px;
+                          left:800px;
+                          bottom:700px;
                           "
                    src="./art/maskon.png">
               </img>

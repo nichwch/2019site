@@ -1,0 +1,30 @@
+body
+{
+  font-family: 'Roboto Mono', monospace;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:500px;
+  background-color:rgb(247,119,84,1);
+  overflow-wrap:break-word;
+}
+
+@media screen and (max-width: 600px) {
+  body{
+    width:400px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body{
+    width:280px;
+    font-size:14px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  body{
+    width:250px;
+    font-size:12px;
+  }
+}

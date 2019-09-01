@@ -1,11 +1,21 @@
-console.log(window.location.hash);
 window.scrollTo(0,0);
+
+if(window.innerWidth <= 800) {
+     window.location.href="./potato";
+   } else {
+     console.log(window.innerWidth);
+   }
 
 const layer1 = document.getElementById("layer1");
 const layer2 = document.getElementById("layer2");
 const layer3 = document.getElementById("layer3");
 const nickImage = document.getElementById("nickImage");
 const nick = document.getElementById("nick");
+
+const titleText = document.getElementById("titleText");
+const content = document.getElementById("content");
+
+const contentBox = document.getElementById("mainBox");
 
 
 const setTranslate = (xPos, yPos, zPos,el) => {
@@ -68,135 +78,107 @@ const handleScroll = (e) =>
 
   console.log("SCROLL",(document.documentElement.scrollLeft|| document.body.scrollLeft));
 
-  // if((document.documentElement.scrollLeft|| document.body.scrollLeft)<4000)
-  // {
-  //   nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
-  // }
-  //
-  // if((document.documentElement.scrollLeft>4000 || document.body.scrollLeft>4000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<5000))
-  // {
-  //   childTransform = getTranslate(nick);
-  //
-  //   //original transform is -450,530,-180
-  //
-  //   //how far through the 1000 pixel transition zone we've gotten
-  //   let progress = (((document.documentElement.scrollLeft|| document.body.scrollLeft) - 4000)/1000);
-  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65);
-  //   // let newX = -450+progress * (finalX);
-  //   // setTranslate(newX,childTransform[1],childTransform[2],child);
-  //
-  //   let finalScale = 1;
-  //   let newScale = 0.3 + (progress*finalScale);
-  //   nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
-  //
-  // }
-  //
-  // if((document.documentElement.scrollLeft>5000 || document.body.scrollLeft>5000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
-  // {
-  //   nickImage.style.transform = `scaleX(-1) scale(${1.3})`;
-  //
-  //   // childTransform = getTranslate(nick);
-  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65)-450;
-  //   // setTranslate(finalX,childTransform[1],childTransform[2],nick);
-  // }
-  //
-  // if((document.documentElement.scrollLeft>6000 || document.body.scrollLeft>6000) && ((document.documentElement.scrollLeft|| document.body.scrollLeft)<7000))
-  // {
-  //   childTransform = getTranslate(nick);
-  //
-  //   //original transform is -450,530,-180
-  //
-  //   //how far through the 1000 pixel transition zone we've gotten
-  //   let progress = ((7000-(document.documentElement.scrollLeft|| document.body.scrollLeft))/1000);
-  //   // let finalX = window.innerWidth-(window.innerWidth * 0.65);
-  //   // let newX = -450+progress * (finalX);
-  //   // setTranslate(newX,childTransform[1],childTransform[2],child);
-  //   let finalScale = 1;
-  //   let newScale = 0.3 + (progress*finalScale);
-  //   nickImage.style.transform = `scaleX(-1) scale(${newScale})`;
-  // }
-  //
-  // if((document.documentElement.scrollLeft|| document.body.scrollLeft)>7000)
-  // {
-  //   nickImage.style.transform = `scaleX(-1) scale(${0.3})`;
-  //
-  //   // childTransform = getTranslate(nick);
-  //   // let finalX = -450;
-  //   // setTranslate(finalX,childTransform[1],childTransform[2],nick);
-  // }
-
-
-
 
 
   //end
   //blog
-  if((document.documentElement.scrollLeft>9000 || document.body.scrollLeft>9000))
+  if((document.documentElement.scrollLeft>16000 || document.body.scrollLeft>16000))
   {
     // setState({
     //   title:BLOG,
     //   surfer:maskon,
     //   content:(
     //     <React.Fragment>
-    //       <p>Coming soon.</p>
-    //       <p>For now, here's my <a href="https://medium.com/@nichwch">medium page</a></p>
-    //
+
     //     </React.Fragment>
     //   )
     // });
+    //
+    titleText.innerHTML = "Blog";
+    content.innerHTML = `
+    <p>Coming soon.</p>
+    <p>For now, here's my <a href="https://medium.com/@nichwch">medium page</a>.</p>
+    `;
+
+    mainBox.className = "mainBox appear";
+  }
+
+  else if((document.documentElement.scrollLeft>12000 || document.body.scrollLeft>12000))
+  {
+    mainBox.className = "mainBox appear disappear";
   }
 
   //projects
-  else if((document.documentElement.scrollLeft>7000 || document.body.scrollLeft>7000))
+  else if((document.documentElement.scrollLeft>10000 || document.body.scrollLeft>10000))
   {
     // setState({
     //   title:PROJECTS,
     //   surfer:maskon,
     //   content:(
     //     <React.Fragment>
-    //       <p>I love making things! Keep scrolling to see some projects I've made.</p>
-    //       <p>Things I use:</p>
-    //       <ul>
-    //         <li>React (HTML5,CSS,JS,Redux,Router,Bootstrap)</li>
-    //         <li>Node (AWS,Express,PostgreSQL)</li>
-    //         <li>Unity (2D)</li>
-    //         <li>Procreate</li>
-    //       </ul>
     //
     //     </React.Fragment>
     //   )
     // });
+    //
+    //
+    titleText.innerHTML = "Projects";
+    content.innerHTML = `
+    <p>I love making things! Keep scrolling to see some projects I've made.</p>
+    <p>Things I use:</p>
+    <ul>
+      <li>React (HTML5,CSS,JS,Redux,Router,Bootstrap)</li>
+      <li>Node (AWS,Express,PostgreSQL)</li>
+      <li>Unity (2D)</li>
+      <li>Procreate</li>
+    </ul>
+    `;
+
+
     nickImage.className = "layerElement nickImageC";
+    nickImage.src = "./art/maskon.png";
+    mainBox.className = "mainBox appear";
   }
   //about page
-  else if((document.documentElement.scrollLeft>5000 || document.body.scrollLeft>5000))
+  else if((document.documentElement.scrollLeft>4000 || document.body.scrollLeft>4000))
   {
     nickImage.className = "layerElement nickImageC zoomedIn";
-    // setState({
-    //   title:ABOUT,
-    //   surfer:fuckitmaskoff,
-    //   content:(
-    //     <React.Fragment>
-    //       <p>That's me to the right! I don't really skateboard.</p>
-    //       <p>I'm a sophomore at UC Davis studying CS and economics. There, I'm part of the PLASMA incubator,
-    //       Model UN, and boxing club.</p>
-    //       <p>I became interested in programming after making a videogame my junior
-    //       year of high school. It's been my favorite hobby since. I especially love web programming,
-    //       but harbor much curiosity towards backend development, machine learning, and
-    //       game development as well.</p>
-    //       <p>My favorite videogames are Super Mario Galaxy 2, Metal Gear Solid 5, and FTL. My taste in music
-    //       is ever shifting - right now I'm impartial to Radiohead, 80s synth, and psychadelic rock. By the time
-    //       anyone reads that it'll probably have changed. </p>
-    //
-    //     </React.Fragment>
-    //   )
-    // });
+
+
+    titleText.innerHTML = "About";
+    content.innerHTML = `<p>That's me to the right! I don't really skateboard.</p>
+    <p>I'm a sophomore at UC Davis studying CS and economics. There, I'm part of the PLASMA incubator,
+    Model UN, and boxing club.</p>
+    <p>I became interested in programming after making a videogame my junior
+    year of high school. It's been my favorite hobby since. I especially love web programming,
+    but harbor much curiosity towards backend development, machine learning, and
+    game development as well.</p>
+    <p>My favorite videogames are Super Mario Galaxy 2, Metal Gear Solid 5, and FTL. My taste in music
+    is ever shifting - right now I'm impartial to Radiohead, 80s synth, and psychadelic rock. By the time
+    anyone reads that it'll probably have changed. </p>`;
+
+
+    nickImage.src = "./art/fuckitmaskoff.png";
+
   }
 
   //start
   else if((document.documentElement.scrollLeft>0 || document.body.scrollLeft>0))
   {
     nickImage.className = "layerElement nickImageC";
+
+    titleText.innerHTML = "Nicholas Chen";
+    content.innerHTML = `
+    <p>Scroll to navigate.<br/>[HQ v4.0]</p>
+    <p>
+    Animations running slowly? Use the <a href="./potato">potato version</a>
+    </p>
+    <p>find me:</p>
+    <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="www.linkedin.com/in/nicholas-chen-developer">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
+    `;
+
+
+    nickImage.src = "./art/maskon.png";
     // setState(getInitialState());
   }
 
