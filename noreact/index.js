@@ -160,7 +160,7 @@ const handleScroll = (e) =>
     but harbor much curiosity towards backend development, machine learning, and
     game development as well.</p>
     <p>My favorite videogames are Super Mario Galaxy 2, Metal Gear Solid 5, and FTL. My taste in music
-    is ever shifting - right now I'm impartial to Radiohead, 80s synth, and psychadelic rock. By the time
+    is ever shifting - right now I'm impartial to Portishead, 80s synth, and psychadelic rock. By the time
     anyone reads that it'll probably have changed. </p>`;
 
 
