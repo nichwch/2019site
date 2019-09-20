@@ -134,7 +134,7 @@ const handleScroll = (e) =>
     <p>Things I use:</p>
     <ul>
       <li>React (HTML5,CSS,JS,Redux,Router,Bootstrap)</li>
-      <li>Node (AWS,Express,PostgreSQL)</li>
+      <li>Node (AWS,Express,PostgresQL)</li>
       <li>Unity (2D)</li>
       <li>Procreate</li>
     </ul>
