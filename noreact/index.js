@@ -134,7 +134,7 @@ const handleScroll = (e) =>
     <p>Things I use:</p>
     <ul>
       <li>React (HTML5,CSS,JS,Redux,Router,Bootstrap)</li>
-      <li>Node (AWS,Express,PostgresQL)</li>
+      <li>Node (AWS,Express,PostgreSQL)</li>
       <li>Unity (2D)</li>
       <li>Procreate</li>
     </ul>
@@ -179,7 +179,13 @@ const handleScroll = (e) =>
     <p>
     Animations running slowly? Use the <a href="./potato">potato version</a>
     </p>
-    <p>find me:</p>
+    <h2>CURRENTLY LISTENING TO</h2>
+    <p>Death Grips//Portishead//The Beatles</p>
+    <h2>CURRENTLY READING</h2>
+    <p>
+      The Origins of Political Order, Francis Fukuyama
+    </p>
+    <h2>find me:</h2>
     <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="www.linkedin.com/in/nicholas-chen-developer">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
     `;
 
