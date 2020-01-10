@@ -186,7 +186,7 @@ const handleScroll = (e) =>
       The Origins of Political Order, Francis Fukuyama
     </p>
     <h2>find me:</h2>
-    <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="www.linkedin.com/in/nicholas-chen-developer">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
+    <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="https://www.linkedin.com/in/nicholas-chen-7b09a966/">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
     `;
 
 
