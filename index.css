@@ -1,26 +1,38 @@
+body{
+    font-family:"arial";
+}
+
 .floatinghead{
     height:200px;
-    width:146.7px;
+    width:147px;
     position: relative;
+    margin:0px;
+    padding:0px;
 }
 
 #floatingheadContainer{
-
+    height:200px;
+    display:block;
 }
 
 #fullface{
+    left:0px;
     z-index:101;
 }
 
 #facecrack{
-    left:-146.7px;
+    left:calc(-151.3px * 1.0);
     z-index:100;
 }
 #facetop{
-    left:calc(-146.7px * 2);
+    left:calc(-151.3px * 2.0);
     z-index:99;
 }
 #facebottom{
-    left:calc(-146.7px * 3);
+    left:calc(-151.3px * 3.0);
     z-index:98;
+}
+#facecore{
+    left:calc(-151.3px * 4.0);
+    z-index:97;
 }
