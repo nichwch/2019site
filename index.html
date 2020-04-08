@@ -1,33 +1,322 @@
-<html>
-	<head>
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
-		<div class="section">
-			<div id="floatingHeadContainer">
-				<img class="floatinghead" id="fullface" src="fullface.png">
-				</img>
-				<img class="floatinghead" id="facecrack" src="facecrack.png">
-				</img>
-				<img class="floatinghead" id="facetop" src="facetop.png">
-				</img>
-				<img class="floatinghead" id="facebottom" src="facebottom.png">
-				</img>
-				<img class="floatinghead" id="facecore" src="facecore.png">
-				</img>
-			</div>
-			<div id="titleContainer">
-				<h1>Nicholas Chen</h1>
-				<p>
-					React & Express Fullstack Developer
-				</p>
-			</div>
-		</div>
-		<div class="section">
-			<h1>About</h1>
-			<p>My name is Nicholas Chen</p>
-		</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>history.scrollRestoration = "manual"</script>
+    <meta charset="utf-8" />
+    <script>history.scrollRestoration = "manual"</script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="./art/favicon.png" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Nicholas Chen's personal site"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-		
-	</body>
+      Unlike "/favicon.ico" or "favicon.ico; "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Nicholas Chen</title>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+      <div id="scrolling-wrapper" class="scrolling-wrapper">
+        <div class="projectsPanel">
+          <div>
+            <h1>Projects</h1>
+          </div>
+          <div class="project">
+            <img src="./art/epsilearn.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">Epsilearn</h1>
+            <p class="projectContent">
+              Epsilearn is an educational content aggregator I'm developing with Torin Keenan.
+              It's being developed as part of <a href="https://ucplasma.com/">UC Davis' Prototyping Labs And Startup Mentorship</a> program.
+              You can find an alpha version <a href="https://epsilearn.co">here</a>.
+            </p>
+          </div>
+          <div class="project">
+            <img src="./art/YANA.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">YANA</h1>
+            <p class="projectContent">
+              <a href="http://yananotes.com/">YANA</a> is my own personal notetaking app.
+              It's designed to help disorganized people (like myself) keep their ideas and
+              thoughts neatly sorted, in an intuitive way.<br/><br/>
+
+              You can find it on ProductHunt here!<br/>
+              <br/>
+              <a href="https://www.producthunt.com/posts/yana-yet-another-notetaking-app?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-yana-yet-another-notetaking-app" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=170838&theme=light" alt="YANA - Yet Another Notetaking App - Stream of Consciousness Notetaking. | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+          </br/>
+            </p>
+          </div>
+          <div class="project">
+            <img src="./art/game.png" height="150px" width="150px"/>
+            <br/>
+            <h1 class="titleText">Games</h1>
+            <p class="projectContent">
+              I make videogames sometime. You can find them on <a href="https://nichwch.itch.io/">itch.io</a>.
+              <br/>
+              </br/>
+              My last game, <a href="https://apps.apple.com/us/app/the-hanging-gardens/id1436229531">The Hanging Gardens</a>,
+              has over 900 downloads on the App Store.
+            </p>
+          </div>
+        </div>
+        <div id="stopper">
+
+        </div>
+      </div>
+
+      <div class="contentLayer">
+
+        <div class="mainBox appear" id="mainBox">
+          <h1 class="titleText" id="titleText">
+            Nicholas Chen
+          </h1>
+          <h2 class="subTitle" id="subTitle">
+            [hover to expand]
+          </h2>
+          <div class="content" id="content">
+            <p>Scroll up and down to navigate.<br/>[HQ v4.0]</p>
+            <p>
+            Animations running slowly? Use the <a href="./potato">potato version</a>
+            </p>
+            <h2>CURRENTLY LISTENING TO</h2>
+            <p>Death Grips//Portishead//The Beatles</p>
+            <h2>CURRENTLY READING</h2>
+            <p>
+              The Origins of Political Order, Francis Fukuyama
+            </p>
+            <h2>find me:</h2>
+            <p><a href="mailto:nichwch@gmail.com">email</a>|<a href="https://www.linkedin.com/in/nicholas-chen-7b09a966/">linkedin</a>|<a href="https://github.com/nichwch">github</a>|<a href="https://medium.com/@nichwch">blog</a>|<a href="https://www.instagram.com/machine.future/">insta</a></p>
+          </div>
+        </div>
+      </div>
+
+        <div class="backgroundContainer">
+
+
+          <div class="layer" id="layer1"
+               style="transform:translate3d(0px, 0px, 0px);z-index:-2"
+          >
+              <img  class="layerElement"
+                    style="height:700px;
+                          filter:brightness(80%);
+                          left:600px;"
+                    src="./art/building1.png">
+              </img>
+              <!-- <BackgroundBox left={800}
+                             bottom={200}
+                             title={this.state.title}
+
+              />
+
+              <BackgroundBox left={2300}
+                             bottom={200}
+                             title={this.state.title}
+
+              /> -->
+          </div>
+
+          <div class="layer" id="layer2"
+               style="
+                       transform:translate3d(0px, 90px, -90px);
+                       filter:brightness(60%);
+                       z-index:-4;"
+          >
+              <img class="layerElement"
+                   style="height:800px;
+                           left:200px;
+                           bottom:-10px;
+                           "
+                   src="./art/building3.png">
+              </img>
+              <!-- <BackgroundBox left={200}
+                             bottom={200}
+                             title={this.state.title}
+
+              /> -->
+              <img class="layerElement"
+                   style="height:800px;
+                           left:500px;
+                           bottom:-200px;
+                           transform:scaleX(-1);
+                           "
+                   src="./art/building2.png">
+              </img>
+
+              <!-- <BackgroundBox left={550}
+                             bottom={0}
+                             title={this.state.title}
+
+              /> -->
+
+              <img class="layerElement"
+                   style="height:800px;
+                           left:900px;
+                           bottom:-3px;
+                           "
+                   src="./art/building3.png">
+              </img>
+              <!-- <img class="layerElement"
+                   style="height:800px;
+                           left:1500px;
+                           bottom:-50px;
+                           "
+                   src="./art/building2.png">
+              </img> -->
+
+              <!-- <BackgroundBox left={3100}
+                             bottom={600}
+                             title={this.state.title}
+
+              />
+              <BackgroundBox left={2950}
+                             bottom={400}
+                             title={this.state.title}
+
+              /> -->
+
+
+          </div>
+
+          <!-- {/*surfer*/} -->
+          <div class="layer" id="nick"
+               style="
+                      transform:translate3d(-450px, 570px, -180px);
+                      filter:brightness(100%);
+                      z-index:-6;"
+          >
+              <img class="layerElement nickImageC"
+                  id="nickImage"
+                  style="height:500px;
+                          left:800px;
+                          bottom:700px;
+                          "
+                   src="./art/maskon.png">
+              </img>
+          </div>
+
+          <!-- {/*layer 3*/} -->
+          <div class="layer" id="layer3"
+               style="
+                       transform:translate3d(0px, 180px, -180px);
+                       filter:brightness(40%);
+                       z-index:-8;"
+          >
+              <img class="layerElement"
+                   style="height:800px;
+                           left:400px;
+                           bottom:-150px;
+                           transform:scaleX(-1);
+                           "
+                   src="./art/building3.png">
+              </img>
+              <img class="layerElement"
+                   style="height:800px;
+                           left:800px;
+                           bottom:-300px;
+                           "
+                   src="./art/building2.png">
+              </img>
+
+              <!-- <BackgroundBox left={550}
+                             bottom={0}
+                             title={this.state.title}
+
+              />
+              <BackgroundBox left={450}
+                             bottom={300}
+                             title={this.state.title}
+
+              /> -->
+
+              <img class="layerElement"
+                   style="height:800px;
+                           left:1300px;
+                           bottom:-100px;
+                           transform:scaleX(-1);
+                           "
+                   src="./art/building1.png">
+              </img>
+              <img class="layerElement"
+                   style="height:800px;
+                           left:2800px;
+                           bottom:-200px;
+                           "
+                   src="./art/building4.png">
+              </img>
+
+              <img  class="layerElement"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:3600px
+                          "
+                    src="./art/building3.png">
+              </img>
+
+              <img  class="layerElement"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:4600px;
+                            bottom:-200px
+                          "
+                    src="./art/building4.png">
+              </img>
+
+              <img  class="layerElement"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:5600px;
+                          "
+                    src="./art/building1.png">
+              </img>
+
+              <img  class="layerElement"
+                    style="height:700px;
+                            filter:brightness(80%);
+                            left:6600px;
+                            bottom:-100px;
+                          "
+                    src="./art/building2.png">
+              </img>
+          </div>
+
+          <div class="layer" id="layer4"
+               style="
+                      transform:translate3d(0px, -1500px, -900px);
+                      z-index:-10;"
+          >
+                <img class="layerElement"
+                     style="height:1000px;
+                            transform:scale(6);"
+                     src="./art/oceanbackground.png">
+                </img>
+          </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
 </html>

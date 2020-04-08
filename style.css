@@ -1,0 +1,208 @@
+.projectsPanel
+{
+  position:absolute;
+  left:13000px;
+  display:block;
+  width:auto;
+  height:calc(100vh - 80px);
+  vertical-align:top;
+
+  padding:40px;
+  background-color:rgb(247,119,84,0.85);
+  z-index:10;
+  float:left;
+  white-space:nowrap;
+}
+
+.project
+{
+  position:static;
+  display:inline-block;
+  width:420px;
+  height:420px;
+  padding:40px;
+  margin:0px;
+  vertical-align:top;
+  overflow-wrap:break-word;
+  white-space:normal;
+  /* border:2px solid red; */
+}
+
+.projectContent
+{
+
+  vertical-align:top;
+}
+
+.scrolling-wrapper
+{
+  position:absolute;
+  height:100vh;
+  bottom:0px;
+  z-index:10;
+}
+#stopper
+{
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  left:25000px;
+}
+.backgroundContainer
+{
+  position:fixed;
+  height:100vh;
+  perspective:500px;
+}
+
+
+.foreground
+{
+  position:fixed;
+  bottom:0px;
+  z-index:0;
+}
+
+.layer
+{
+  position:fixed;
+  bottom:0px;
+}
+
+.layerElement
+{
+  position:absolute;
+  bottom:0px;
+}
+
+
+
+.contentLayer
+{
+  position:fixed;
+  margin:0px;
+  padding:0px;
+  height:100vh;
+  width:100vw;
+
+  z-index:5;
+}
+
+.navContainer
+{
+  display:inline-block;
+  height:calc(60vh);
+  width:calc(10vh + 40px);
+  margin-top:10vh;
+  margin-left:30px;
+  vertical-align:top;
+}
+
+.navEl
+{
+  position:block;
+  background-color:rgb(247,119,84,0.8);
+  height:calc(10vh + 21px);
+  width:calc(10vh + 21px);
+  border:2px solid black;
+  padding:10px;
+  margin:0px;
+  margin-bottom:calc(2.5vh);
+  text-align:center;
+}
+
+.mainBox
+{
+  display:inline-block;
+  margin-left:30px;
+  margin-top:30px;
+  margin-bottom:20vh;
+  height:calc(10vh);
+  width:calc(40vh);
+
+  border:2px solid black;
+  background-color:rgb(247,119,84,0.8);
+  padding:20px;
+  /* color:rgb(255, 0, 50,0.7); */
+
+  transition: height 0.07s, padding 0.07s, background-color 0.07s;
+
+}
+
+.mainBox:hover
+{
+  padding:50px;
+  height:auto;
+  background-color:rgb(247,119,84,0.95);
+  /* color:rgb(255, 0, 0,0.7); */
+}
+.appear
+{
+  opacity:1;
+  transition:opacity 0.3s;
+}
+.appear.disappear
+{
+  opacity:0;
+}
+
+.titleText
+{
+  display:inline-block;
+  font-size:4vh;
+  margin:0px;
+  /* color:rgb(255, 0, 50,0.7);
+  background-color:rgb(-255, 0, 0,0.7); */
+}
+
+.subTitle
+{
+  margin:0px;
+  font-size:2vh;
+}
+
+.mainBox .subTitle
+{
+  transition:letter-spacing 0.07s, color 0.07s;
+}
+.mainBox:hover .subTitle
+{
+  letter-spacing:0.5vw;
+  color:white;
+}
+
+.mainBox .content
+{
+  display:none;
+  font-size:0vh;
+  font-weight:bold;
+  transition:font-size 0.07s;
+}
+
+.mainBox:hover .content
+{
+  display:block;
+  font-size:1.7vh;
+  height:auto;
+}
+
+.nickImageC{
+  transform: scaleX(-1) scale(0.6);
+  transition: transform 0.5s;
+}
+
+.nickImageC.zoomedIn
+{
+  transform:scaleX(-1) scale(2.5);
+}
+
+body
+{
+  font-family: 'Roboto Mono', monospace;
+  overflow: hidden;
+}
+
+html
+{
+
+}
