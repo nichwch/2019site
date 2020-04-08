@@ -1,18 +1,27 @@
 body{
     font-family:"arial";
+    margin:0px;
+}
+
+.section{
+    height:calc(100vh - 30px);
+    padding:15px;
 }
 
 .floatinghead{
-    height:200px;
-    width:147px;
-    position: relative;
+    height:150px;
+    position: absolute;
     margin:0px;
     padding:0px;
 }
 
 #floatingheadContainer{
     height:200px;
-    display:block;
+    position:fixed;
+    left:50%;
+}
+#titleContainer{
+    width:50%
 }
 
 #fullface{
@@ -21,18 +30,14 @@ body{
 }
 
 #facecrack{
-    left:calc(-151.3px * 1.0);
     z-index:100;
 }
 #facetop{
-    left:calc(-151.3px * 2.0);
     z-index:99;
 }
 #facebottom{
-    left:calc(-151.3px * 3.0);
     z-index:98;
 }
 #facecore{
-    left:calc(-151.3px * 4.0);
     z-index:97;
 }
